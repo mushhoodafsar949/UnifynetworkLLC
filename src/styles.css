@@ -1,1 +1,94 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+  scroll-behavior: smooth;
+}
+/* Default Light Theme */
+body.light-theme {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: #191414;
+  color: #fff;
+}
+
+/* Adjust PrimeNG button styles based on the theme */
+
+/* Redesigned PrimeNG button styles */
+
+/* General Button Styles */
+body .p-button {
+  border-radius: 20px; /* Smooth pill shape */
+  font-size: 14px; /* Modern text size */
+  font-weight: 600; /* Bold for emphasis */
+  padding: 0.5rem 1.5rem; /* Balanced padding for button content */
+  transition: all 0.3s ease; /* Smooth animations for hover/focus */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and label */
+}
+
+/* Light Theme Button */
+body.light-theme .p-button {
+  background-color: transparent;/* Vibrant blue for the light theme */
+  border: none;
+  color: #E74C3C;  /* White text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
+}
+
+body.light-theme .p-button:hover {
+  color: #E74C3C; /* Red accent */
+  background-color: rgba(231, 76, 60, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+body.light-theme .p-button:focus {
+  outline: 2px solid #80bdff; /* Subtle focus ring */
+  outline-offset: 2px;
+}
+
+/* Dark Theme Button */
+body.dark-theme .p-button {
+  background-color: transparent; /* Neutral dark background */
+  border: 1px solid #666; /* Subtle border */
+  color: #E74C3C;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Soft light shadow */
+}
+
+body.dark-theme .p-button:hover {
+  background-color: #666; /* Lighter gray for hover */
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+body.dark-theme .p-button:focus {
+  outline: 2px solid #80bdff; /* Subtle focus ring for accessibility */
+  outline-offset: 2px;
+}
+
+/* Icon Styling */
+body .p-button .pi {
+  font-size: 16px; /* Slightly larger icon */
+}
+
+/* Disabled State */
+body .p-button:disabled {
+  background-color: #ccc; /* Neutral gray for disabled */
+  color: #666; /* Muted text */
+  border: none;
+  box-shadow: none; /* No shadow */
+  cursor: not-allowed;
+  opacity: 0.6; /* Reduced opacity */
+}
+
+/* Small Ripple Effect for Interaction */
+body .p-button:active {
+  transform: translateY(1px); /* Slight push-down effect */
+}
+

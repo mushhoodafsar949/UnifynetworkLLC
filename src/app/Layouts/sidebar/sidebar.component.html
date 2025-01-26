@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav
+    #sidenav
+    class="sidenav"
+    mode="over"
+    [(opened)]="isOpened"
+  >
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine routerLink="/">Home</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine routerLink="/about">About</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine routerLink="/services">Services</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine routerLink="/contact">Contact</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <button
+      mat-icon-button
+      class="toggle-button"
+      (click)="toggleSidebar()"
+      *ngIf="!isOpened"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

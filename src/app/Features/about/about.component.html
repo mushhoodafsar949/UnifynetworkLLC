@@ -1,0 +1,154 @@
+<div class="about-container" data-aos="fade-up">
+  <!-- CEO Statement Section -->
+  <div class="ceo-statement" data-aos="fade-in">
+    <div class="ceo-quote">
+      <img src="../../../assets/CEOImg.jpg" alt="CEO" class="ceo-image" />
+      <blockquote class="quote">
+        "At Unify Network, we believe that technology should simplify life, not complicate it. Our dedication to excellence and passion for innovation drives us to continually push the boundaries of what’s possible."
+      </blockquote>
+      <p class="ceo-name">- Hashir Afsar Yousafzai, CEO Unify Network</p>
+    </div>
+  </div>
+
+  <!-- About Header Section -->
+  <div class="about-header" >
+    <h1>About Unify Network</h1>
+    <p>Discover our journey, mission, and what drives us to provide exceptional service globally.</p>
+  </div>
+
+  <!-- Mission, Vision, and Goal Section -->
+  <div class="about-sections">
+    <div class="about-section">
+      <h2>Our Mission</h2>
+      <p>
+        At Unify Network, our mission is to connect businesses globally with cutting-edge technology solutions while maintaining integrity, transparency, and customer satisfaction at the core of everything we do.
+      </p>
+      <ul>
+        <li><strong>Integrity:</strong> Honesty and ethical conduct in all aspects.</li>
+        <li><strong>Innovation:</strong> Forward-thinking solutions to solve challenges creatively.</li>
+        <li><strong>Customer Satisfaction:</strong> Your satisfaction drives us forward.</li>
+      </ul>
+    </div>
+
+    <div class="about-section">
+      <h2>Our Vision</h2>
+      <p>
+        To be the leading global technology partner, empowering businesses to thrive in an interconnected world. We aim to create lasting value through innovation and sustainable practices.
+      </p>
+      <ul>
+        <li><strong>Global Reach:</strong> Seamlessly connecting businesses worldwide.</li>
+        <li><strong>Sustainability:</strong> Positively impacting business and community.</li>
+        <li><strong>Technological Excellence:</strong> Setting new standards for innovation.</li>
+      </ul>
+    </div>
+
+    <div class="about-section">
+      <h2>Our Goal</h2>
+      <p>
+        Our goal is to foster a culture of continuous innovation and to remain at the forefront of industry trends. We strive to provide unparalleled customer experiences and maintain long-lasting partnerships with businesses across the globe.
+      </p>
+      <ul>
+        <li><strong>Continuous Innovation:</strong> Constantly evolving and improving solutions.</li>
+        <li><strong>Industry Leadership:</strong> Becoming global leaders in tech solutions.</li>
+        <li><strong>Global Partnerships:</strong> Building relationships that lead to mutual growth.</li>
+      </ul>
+    </div>
+  </div>
+
+<!-- Team Members Slider Section -->
+<div class="team-slider" data-aos="fade-in">
+  <h2>Meet Our Team</h2>
+  <div class="card">
+    <p-carousel
+    [value]="teamMembers"
+    [numVisible]="slidesToShow"
+    [numScroll]="scrollStep"
+    [circular]="true"
+    [autoplayInterval]="5000"
+    [responsiveOptions]="responsiveOptions">
+    <ng-template let-member pTemplate="item">
+      <div class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4 team-member-card">
+        <div class="team-member-image">
+          <img
+            [src]="member.imageUrl"
+            alt="{{ member.name }} profile picture"
+            style="width: 300px; height: 300px; border-radius: 50%;"
+            class="w-full rounded-border">
+        </div>
+        <div class="team-member-info">
+          <div class="team-member-name">{{ member.name }}</div>
+          <div class="team-member-role">{{ member.designation }}</div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+
+  </div>
+</div>
+
+
+  <!-- Office Culture and Ethics Section -->
+<!-- Office Culture and Ethics Section -->
+<div class="culture-ethics" data-aos="fade-left">
+  <h2>Our Office Culture & Work Ethics</h2>
+  <p>
+    At Unify Network, we believe that our office culture is integral to our success. We support creativity, trust, and transparency, ensuring long-term growth and success.
+  </p>
+  <h3>Location</h3>
+  <p>Our headquarters is in Kalispell City, Montana. With offices worldwide to better serve our clients.</p>
+
+  <!-- Google Map -->
+  <div class="map-container" style="height: 400px; width: 100%;">
+    <google-map [center]="center" [zoom]="zoom" height="400px" width="100%">
+      <map-marker [position]="center" [label]="businessName"></map-marker>
+    </google-map>
+  </div>
+</div>
+
+  <!-- Milestones Section -->
+  <div class="milestones" data-aos="fade-right">
+    <h2>Our Milestones</h2>
+  <mat-stepper orientation="vertical">
+    <!-- Step 1: Milestones Header -->
+    <mat-step>
+      <ng-template matStepLabel>milestone 1</ng-template>
+      <ng-template matStepContent>
+          <div class="milestone">
+            <h3>2017</h3>
+            <p>Founded with a mission to connect businesses globally.</p>
+          </div>
+        <button mat-button matStepperNext>Next</button>
+      </ng-template>
+    </mat-step>
+
+    <!-- Step 2: More Content (Optional) -->
+    <mat-step>
+      <ng-template matStepLabel>milestone 2</ng-template>
+      <ng-template matStepContent>
+        <div class="milestone">
+          <h3>2020</h3>
+          <p>Reached 1,000+ global clients.</p>
+        </div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </ng-template>
+    </mat-step>
+
+    <!-- Step 3: Milestones Recap or Other Content -->
+    <mat-step>
+      <ng-template matStepLabel>milestone 3</ng-template>
+      <div class="milestone">
+        <h3>2025</h3>
+        <p>Expanded into 3+ countries worldwide.</p>
+      </div>
+      <button mat-button matStepperPrevious>Back</button>
+    </mat-step>
+  </mat-stepper>
+</div>
+
+  <!-- Footer Section -->
+  <div class="footer" data-aos="fade-up">
+    <h2>Join Us in Shaping the Future</h2>
+    <p>Together, we can create a more connected and innovative world.</p>
+  </div>
+</div>

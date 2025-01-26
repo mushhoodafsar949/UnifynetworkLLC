@@ -1,0 +1,12 @@
+<div class="service-grid" data-aos="fade-in">
+  <div class="service-card" *ngFor="let service of services">
+    <div class="service-image" [style.backgroundImage]="'url(' + service.imageUrl + ')'" data-aos="fade-right">
+      <div class="service-overlay">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <button mat-button       [routerLink]="['/services-detail', service.title]"
+        >Learn More</button>
+      </div>
+    </div>
+  </div>
+</div>

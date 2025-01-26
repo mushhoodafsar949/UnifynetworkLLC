@@ -1,0 +1,48 @@
+<mat-toolbar class="navbar">
+  <!-- Logo Section -->
+  <div class="navbar-logo-container">
+    <a routerLink="/" class="navbar-logo">UnifyNetwork</a>
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="navbar-links" *ngIf="!menuOpen">
+    <a mat-button routerLink="/" routerLinkActive="active">Home</a>
+    <a mat-button routerLink="/services" routerLinkActive="active">Services</a>
+    <a mat-button routerLink="/about" routerLinkActive="active">About</a>
+    <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+    <button
+    pButton
+    label="Toggle Theme"
+    icon="pi pi-sun"
+    (click)="themeService.toggleTheme()">
+  </button>
+  </div>
+
+  <!-- Hamburger Button -->
+  <button mat-icon-button (click)="toggleMenu()" class="menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Sidebar -->
+<mat-sidenav-container *ngIf="menuOpen" class="sidebar-container">
+  <mat-sidenav
+    mode="over"
+    opened
+    (closed)="menuOpen = false"
+    class="sidebar"
+  >
+    <div class="sidebar-content">
+      <a mat-button routerLink="/" (click)="menuOpen = false">Home</a>
+      <a mat-button routerLink="/services" (click)="menuOpen = false">Services</a>
+      <a mat-button routerLink="/about" (click)="menuOpen = false">About</a>
+      <a mat-button routerLink="/contact" (click)="menuOpen = false">Contact</a>
+      <button
+      pButton
+      label="Toggle Theme"
+      icon="pi pi-sun"
+      (click)="themeService.toggleTheme()">
+    </button>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>

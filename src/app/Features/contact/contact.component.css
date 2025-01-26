@@ -1,0 +1,167 @@
+/* Contact Page Styling */
+.contact-container {
+  padding: 30px 10px;
+  background-color: transparent;
+  color: #bdc3c7;
+  font-family: 'Roboto', sans-serif;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+.contact-header p {
+  font-size: 1rem;
+  color: #bdc3c7;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form-container,
+.unify-details {
+  background-color: transparent;
+  color: #bdc3c7;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form h2,
+.unify-details h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #f39c12;
+}
+
+.contact-field {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.submit-button {
+  background-color: #bdc3c7;;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #f39c12;
+}
+
+.unify-details p {
+  color: #bdc3c7;
+  margin-bottom: 10px;
+}
+
+.unify-details ul {
+  padding: 0;
+  margin-left: 20px;
+}
+
+.unify-details ul li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.unify-details ul li strong {
+  color: #f39c12;
+}
+
+.animated-images {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.animated-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #f39c12;
+}
+
+.animated-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer h2 {
+  font-size: 1.8rem;
+  color: #f39c12;
+}
+
+.footer p {
+  font-size: 1rem;
+  color: #bdc3c7;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+  .contact-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .contact-form-container,
+  .unify-details {
+    flex: 1;
+    max-width: 45%;
+  }
+
+  .animated-images {
+    justify-content: center;
+  }
+
+  .animated-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .footer h2 {
+    font-size: 2rem;
+  }
+
+  .footer p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact-header h1 {
+    font-size: 3rem;
+  }
+
+  .contact-header p {
+    font-size: 1.2rem;
+  }
+
+  .contact-form-container,
+  .unify-details {
+    padding: 30px;
+  }
+
+  .submit-button {
+    font-size: 1.2rem;
+  }
+}

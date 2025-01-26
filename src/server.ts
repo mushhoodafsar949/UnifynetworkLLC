@@ -5,7 +5,7 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
-import { dirname, resolve } from 'node:path';
+import path, { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
@@ -36,6 +36,11 @@ app.use(
     redirect: false,
   }),
 );
+
+app.use('/services-detail/:id', (req, res) => {
+  // Serve the static index.html file, bypassing SSR
+  res.sendFile(resolve(browserDistFolder, 'index.html'));
+});
 
 /**
  * Handle all other requests by rendering the Angular application.

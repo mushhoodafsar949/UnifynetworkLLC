@@ -1,0 +1,48 @@
+<section class="service-detail" *ngIf="service">
+  <div class="service-header">
+    <mat-icon class="service-icon">{{ service.icon }}</mat-icon>
+    <h1 class="service-title">{{ service.title }}</h1>
+  </div>
+  <img
+    src="../../../assets/services/{{ service.image }}"
+    alt="{{ service.title }}"
+    class="service-image"
+  />
+
+  <div class="service-description">
+    <p>{{ service.description }}</p>
+  </div>
+
+  <div class="service-content">
+    <section class="overview">
+      <h2>Overview</h2>
+      <p>{{ service.overview }}</p>
+    </section>
+
+    <section class="features">
+      <h2>Key Features</h2>
+      <ul>
+        <li *ngFor="let feature of service.features">{{ feature }}</li>
+      </ul>
+    </section>
+
+    <section class="benefits">
+      <h2>Benefits</h2>
+      <p>{{ service.benefits }}</p>
+    </section>
+
+    <section class="use-cases">
+      <h2>Use Cases</h2>
+      <p *ngFor="let useCase of service.useCases">{{ useCase }}</p>
+    </section>
+  </div>
+
+  <div class="navigation-buttons">
+    <button mat-button color="primary" (click)="navigateBack()">Back to Services</button>
+  </div>
+</section>
+
+<div class="no-service" *ngIf="!service">
+  <h2>Service not found</h2>
+  <p>Please select a valid service from the list.</p>
+</div>

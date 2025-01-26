@@ -1,0 +1,110 @@
+/* Footer Styling */
+.footer {
+  background-color: transparent; /* Dark blue-gray */
+  color: #FFFFFF;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Brand Section */
+.brand h4 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #E74C3C; /* Red accent */
+}
+
+.brand p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #BDC3C7; /* Light gray */
+}
+
+/* Quick Links Section */
+.links h5,
+.contact-info h5,
+.social-media-container h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #E74C3C;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links ul li {
+  margin: 8px 0;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: #3498DB; /* Blue accent */
+  transition: color 0.3s;
+  font-size: 16px;
+}
+
+.links ul li a:hover {
+  color: #E74C3C;
+}
+
+/* Contact Info Section */
+.contact-info p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #BDC3C7;
+}
+
+.contact-info a {
+  color: #3498DB;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #E74C3C;
+}
+
+/* Social Media Section */
+.social-media {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon mat-icon {
+  font-size: 28px;
+  color: #3498DB;
+  transition: color 0.3s;
+}
+
+.social-icon:hover mat-icon {
+  color: #E74C3C;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  background-color: #1A252F; /* Darker blue-gray */
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #BDC3C7;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #7F8C8D; /* Muted gray */
+}

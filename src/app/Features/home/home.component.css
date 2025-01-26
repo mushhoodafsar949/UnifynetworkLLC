@@ -1,0 +1,377 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #0A2533; /* Deep blue background */
+  color: #FFFFFF; /* Light text */
+}
+
+/* Headers Styling */
+h1, h2, h3 {
+  color: #F1C40F; /* Gold for all headers */
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Buttons */
+button, .cta-button, .contact-button {
+  background-color: #FF5733; /* Vibrant red accent */
+  color: #FFFFFF;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover, .cta-button:hover, .contact-button:hover {
+  background-color: #F1C40F; /* Gold on hover */
+  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.4); /* Subtle gold glow */
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  background-attachment: fixed;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #f1c40f;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #bdc3c7;
+}
+
+.galleria-item-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.galleria-image,
+.galleria-video {
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+  object-position: center center;
+}
+
+.galleria-video {
+  background: #000; /* Optional: Add a background for better visibility */
+}
+
+/* Fade-in animation for hero content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsiveness - Media Queries */
+
+/* Small Devices (Phones) */
+@media (max-width: 576px) {
+  .hero {
+    height: 60vh; /* Reduce height on small devices */
+  }
+
+  .hero-title {
+    font-size: 2.5rem; /* Reduce font size */
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem; /* Reduce font size */
+  }
+
+  .cta-button {
+    font-size: 0.9rem; /* Smaller button text */
+    padding: 10px 20px; /* Adjust padding */
+  }
+
+  .galleria-image,
+  .galleria-video {
+    object-fit: cover; /* Better fit for small screens */
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 992px) {
+  .hero {
+    height: 70vh; /* Adjust height on medium devices */
+  }
+
+  .hero-title {
+    font-size: 2.5rem; /* Slightly smaller font size */
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem; /* Slightly smaller font size */
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 12px 22px; /* Adjust padding */
+  }
+
+  .galleria-image,
+  .galleria-video {
+    object-fit: contain; /* Slightly adjust for medium screens */
+  }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 1200px) {
+  .hero {
+    height: 80vh; /* Full height for large screens */
+  }
+
+  .hero-title {
+    font-size: 3.5rem; /* Larger title font */
+  }
+
+  .hero-subtitle {
+    font-size: 1.8rem; /* Larger subtitle font */
+  }
+
+  .cta-button {
+    font-size: 1.1rem;
+    padding: 14px 30px; /* Larger button size */
+  }
+
+  .galleria-image,
+  .galleria-video {
+    object-fit: cover; /* Cover image/video */
+  }
+}
+
+/* Services Section */
+.services {
+  padding: 50px 20px;
+  background-color: transparent;
+  text-align: center; /* Center content for mobile screens */
+}
+
+.services h1 {
+  color: var(--primary-color, #007ad9);
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* Service Cards */
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  width: 100%;
+  max-width: 350px;
+}
+
+.service-card mat-card {
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 20px;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card mat-card-title {
+  color: #f1c40f;
+  font-size: 1.3rem;
+  text-align: left;
+}
+.service-card mat-card-content p{
+  font-size: 0.9rem;
+  color: #BDC3C7;
+  text-align: center;
+}
+.service-card mat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
+}
+
+.service-icon {
+  font-size: 28px;
+  color: #f1c40f;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services h1 {
+    font-size: 2.2rem;
+  }
+
+  .service-card mat-card {
+    height: auto;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services h1 {
+    font-size: 2rem;
+  }
+
+  .service-card mat-card {
+    padding: 10px;
+  }
+
+  .service-icon {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services h1 {
+    font-size: 1.8rem;
+  }
+
+  .service-card mat-card {
+    padding: 8px;
+  }
+
+  .service-icon {
+    font-size: 20px;
+  }
+}
+
+
+
+
+/* Statistics Section */
+.statistics-container {
+  padding: 2rem 2rem;
+  justify-content: center;
+
+}
+
+.statistics-container h1 {
+  color: var(--primary-color, #007ad9);
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.statistics {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 1.5rem; /* Add spacing between cards */
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.stat-card {
+  text-align: center;
+  background-color: transparent;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 200px; /* Fixed width for consistency */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: #F1C40F; /* Gold */
+}
+
+.stat-card p {
+  font-size: 1.2rem;
+  color: #BDC3C7; /* Subtle gray */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .statistics-container h1 {
+    font-size: 2rem;
+  }
+
+  .stat-card {
+    width: 180px; /* Slightly smaller for tablets */
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .statistics-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .stat-card {
+    width: 100%; /* Full width on smaller devices */
+    max-width: 300px;
+  }
+
+  .statistics {
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .statistics-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .stat-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .stat-card p {
+    font-size: 1rem;
+  }
+}

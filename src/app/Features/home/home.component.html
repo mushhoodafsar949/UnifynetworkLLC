@@ -1,0 +1,95 @@
+<!-- Hero Section -->
+<header class="hero" data-aos="fade-in">
+  <div class="hero-overlay">
+    <p-galleria
+      [value]="images"
+      [(activeIndex)]="activeIndex"
+      [showItemNavigators]="true"
+      [showThumbnails]="false"
+      [showIndicators]="true"
+      [showItemNavigatorsOnHover]="true"
+      [circular]="true"
+      [containerStyle]="{ 'margin-bottom': '20px' }"
+      [autoPlay]="true"
+      [transitionInterval]="5000"
+    >
+      <ng-template pTemplate="item" let-item>
+        <div class="galleria-item-container">
+          <img
+            *ngIf="item.type === 'image' || item.type === 'gif'"
+            [src]="item.previewImageSrc"
+            [alt]="item.alt"
+            [title]="item.title"
+            class="galleria-image"
+            object-fit="cover"
+            object-position="center center"
+          />
+          <video
+          *ngIf="item.type === 'video'"
+          [src]="item.previewImageSrc"
+          [title]="item.title"
+          class="galleria-video"
+          object-fit="cover"
+          object-position="center center"
+          autoplay
+        ></video>
+        </div>
+      </ng-template>
+    </p-galleria>
+
+    <div *ngIf="showHeroContent" class="hero-content">
+      <h1 class="hero-title">Your Trusted Call Center Solution</h1>
+      <p class="hero-subtitle">Seamless customer support for a connected world.</p>
+      <button mat-raised-button color="accent" class="cta-button">
+        Get Started
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<!-- Services Section -->
+<section class="services" data-aos="fade-up">
+  <h1>Our Services</h1>
+  <div class="service-cards">
+    <div
+      class="service-card"
+      *ngFor="let service of services"
+      [routerLink]="['/services-detail', service.title]"
+    >
+      <mat-card>
+        <mat-card-header>
+          <mat-icon class="service-icon">{{ service.icon }}</mat-icon>
+          <mat-card-title>{{ service.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ service.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Statistics Section -->
+<section class="statistics-container">
+  <h1>Our Accomplishments</h1>
+  <div class="statistics" data-aos="fade-right">
+    <div class="stat-card">
+      <h3>{{ statistics.callsHandled }}</h3>
+      <p>Calls Handled</p>
+    </div>
+    <div class="stat-card">
+      <h3>{{ statistics.clientsServed }}</h3>
+      <p>Clients Served</p>
+    </div>
+    <div class="stat-card">
+      <h3>{{ statistics.teams }}</h3>
+      <p>Expert Teams</p>
+    </div>
+  </div>
+</section>
+
+
