@@ -20,6 +20,12 @@ export function getPrerenderRoutes(): string[] {
   return routes;
 }
 
-const bootstrap = () => bootstrapApplication(AppComponent, config);
+const bootstrap = (context?: any) => {
+  return bootstrapApplication(AppComponent, config, context)
+    .catch((err: any) => {
+      console.error('Error starting the application on server:', err);
+      throw err;
+    });
+};
 
 export default bootstrap;

@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatDivider } from '@angular/material/divider';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 @Component({
   selector: 'app-service-detail',
-  imports: [CommonModule,MatCardModule,MatIconModule],
+  imports: [CommonModule, ButtonModule, CardModule, RouterLink],
   templateUrl: './service-detail.component.html',
   styleUrls: ['./service-detail.component.css'],
   standalone: true,
@@ -177,6 +176,97 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['/']);
     // Scroll to top of the page on back navigation
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  getCategoryName(serviceTitle: string): string {
+    const categoryMap: { [key: string]: string } = {
+      'Customer Support': 'Support Services',
+      'Sales & Lead Generation': 'Sales Services',
+      'Technical Support': 'Technical Services',
+      'Live Chat Support': 'Digital Services',
+      'Order Processing': 'Business Services',
+      'Inbound Campaign': 'Campaign Services',
+      'Outbound Campaign': 'Campaign Services',
+      'Help Desk Services': 'Support Services',
+      'Survey Management': 'Analytics Services',
+      'Appointment Scheduling': 'Business Services'
+    };
+    return categoryMap[serviceTitle] || 'Professional Services';
+  }
+
+  getServiceHighlights(): string[] {
+    return [
+      'Industry-leading expertise',
+      'Proven track record',
+      'Scalable solutions',
+      'Cost-effective approach'
+    ];
+  }
+
+
+
+  getFeatureDescription(feature: string): string {
+    const descriptions: { [key: string]: string } = {
+      '24/7 Availability': 'Round-the-clock support ensuring your customers are never left waiting',
+      'Multi-language Assistance': 'Professional support in multiple languages to serve global customers',
+      'Cross-platform Support': 'Seamless assistance across all your communication channels',
+      'Targeted Campaigns': 'Data-driven campaigns designed to reach your ideal customers',
+      'Lead Qualification': 'Expert screening to identify high-quality prospects',
+      'Dedicated Sales Teams': 'Specialized teams focused on your specific industry and goals',
+      'Real-time Troubleshooting': 'Immediate problem resolution to minimize downtime',
+      'Advanced Diagnostics': 'Sophisticated tools and techniques for accurate problem identification',
+      'Expert Problem Resolution': 'Experienced technicians with deep product knowledge'
+    };
+    return descriptions[feature] || 'Professional service delivery with attention to detail';
+  }
+
+  getBenefitsList(): string[] {
+    return [
+      'Increased customer satisfaction',
+      'Reduced operational costs',
+      'Improved efficiency',
+      'Enhanced brand reputation',
+      '24/7 professional support'
+    ];
+  }
+
+  getUseCaseTitle(useCase: string): string {
+    if (useCase.includes('E-commerce')) return 'E-commerce Excellence';
+    if (useCase.includes('Tech')) return 'Technology Solutions';
+    if (useCase.includes('Businesses')) return 'Business Growth';
+    if (useCase.includes('Software')) return 'Software Support';
+    if (useCase.includes('Electronics')) return 'Product Support';
+    return 'Professional Services';
+  }
+
+  getServiceIconClass(icon: string): string {
+    const iconMap: {[key: string]: string} = {
+      'support_agent': 'pi-headphones',
+      'campaign': 'pi-chart-line',
+      'build': 'pi-cog',
+      'chat': 'pi-comments',
+      'call': 'pi-phone',
+      'ring_volume': 'pi-send',
+      'shopping_cart': 'pi-shopping-cart',
+      'poll': 'pi-chart-bar',
+      'help_outline': 'pi-question-circle',
+      'event': 'pi-calendar'
+    };
+    return iconMap[icon] || 'pi-briefcase';
+  }
+
+  getFeatureIcon(index: number): string {
+    const icons = [
+      'pi-star',
+      'pi-shield',
+      'pi-users',
+      'pi-clock',
+      'pi-globe',
+      'pi-cog',
+      'pi-chart-line',
+      'pi-headphones'
+    ];
+    return icons[index % icons.length];
   }
 
 }

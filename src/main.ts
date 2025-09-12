@@ -1,18 +1,34 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withPreloading, PreloadAllModules, withEnabledBlockingInitialNavigation } from '@angular/router';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatIconModule } from '@angular/material/icon';
-import { importProvidersFrom } from '@angular/core';
+import { importProvidersFrom, enableProdMode, isDevMode } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Enable production mode if not in development
+if (!isDevMode()) {
+  enableProdMode();
+}
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes),
-    importProvidersFrom(MatIconModule),
-    { provide: BrowserAnimationsModule, useClass: BrowserAnimationsModule }, provideAnimationsAsync()
+    // Router with Performance Optimizations
+    provideRouter(
+      routes,
+      withPreloading(PreloadAllModules),
+      withEnabledBlockingInitialNavigation()
+    ),
+    
+    // Browser Animations for PrimeNG Components
+    importProvidersFrom(BrowserAnimationsModule),
+    
+    // Async Animations for Better Performance
+    provideAnimationsAsync(),
   ],
 })
-  .catch((err) => console.error(err));
+  .catch((err) => {
+    console.error('Application failed to start:', err);
+    // Optional: Send error to monitoring service
+  });

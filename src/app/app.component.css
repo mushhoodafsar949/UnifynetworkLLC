@@ -2,51 +2,30 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-/* Sticky Navbar */
-app-navbar {
-  position: sticky; /* Sticks to the top while scrolling */
-  top: 0; /* Position it at the top of the viewport */
-  z-index: 1000; /* Ensure it's above other content */
-  background-color: transparent; /* Match your navbar background color */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-}
-
-
-router-outlet {
-  flex-grow: 1; /* Push the footer to the bottom */
-}
-
-app-footer {
-  margin-top: auto; /* Ensure footer stays at the bottom */
+  width: 100%;
 }
 
 :host {
   display: block;
+  width: 100%;
+  min-height: 100vh;
 }
 
-
-
-/* Sidebar component */
-.toggle-sidebar-btn {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 10001;
-  background-color: #007ad9;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+router-outlet {
+  display: none;
 }
 
-.toggle-sidebar-btn:hover {
-  background-color: #005bb5;
+router-outlet + * {
+  display: block;
+  width: 100%;
+  flex: 1;
+  padding-top: 4rem; /* Height of navbar */
 }
+
+app-footer {
+  margin-top: auto;
+}
+
+/* Removed unused sidebar toggle button styles */
 
 

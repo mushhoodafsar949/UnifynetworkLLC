@@ -2,15 +2,165 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Unifynetworkllc</title>
+  <title>UnifyNetwork LLC - Professional Call Center Solutions</title>
   <base href="/">
+  
+  <!-- Viewport & Mobile Optimization -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4HgPNSWiaeMYxZOWRsQDYc6w4eaLIU3M&callback=initMap" async defer></script>
+  <meta name="theme-color" content="#3b82f6">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="UnifyNetwork LLC provides professional call center solutions including customer support, sales generation, technical support, and 24/7 call center services for businesses worldwide.">
+  <meta name="keywords" content="call center, customer support, sales generation, technical support, business solutions, customer service, 24/7 support">
+  <meta name="author" content="UnifyNetwork LLC">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UnifyNetwork LLC - Professional Call Center Solutions">
+  <meta property="og:description" content="Leading call center services provider offering customer support, sales generation, and technical assistance to businesses worldwide.">
+  <meta property="og:url" content="https://unifynetworkllc.com">
+  <meta property="og:site_name" content="UnifyNetwork LLC">
+  <meta property="og:image" content="/assets/og-image.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UnifyNetwork LLC - Professional Call Center Solutions">
+  <meta name="twitter:description" content="Leading call center services provider offering customer support, sales generation, and technical assistance.">
+  <meta name="twitter:image" content="/assets/twitter-image.jpg">
+  
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="assets/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+  <meta name="theme-color" content="#06d6a0">
+  
+  <!-- Performance & Preloading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://maps.googleapis.com">
+  
+  <!-- Optimized Font Loading with Resource Hints -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- Critical CSS Inline -->
+  <style>
+    /* Critical CSS for above-the-fold content - Performance Optimized */
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      font-family: 'Roboto', system-ui, -apple-system, sans-serif; 
+      line-height: 1.6; 
+      background-color: #ffffff;
+      color: #1f2937;
+      font-display: swap;
+      overflow-x: hidden;
+    }
+    app-root { 
+      display: block; 
+      min-height: 100vh; 
+      contain: layout style paint;
+    }
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #3b82f6 0%, #06d6a0 100%);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      z-index: 9999;
+      transform: translateZ(0);
+    }
+    /* Preload skeleton for navbar */
+    .navbar-skeleton {
+      height: 80px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    /* Hero section skeleton */
+    .hero-skeleton {
+      height: 60vh;
+      background: linear-gradient(135deg, #3b82f6 0%, #06d6a0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Dark theme critical styles */
+    body.dark-theme {
+      background-color: #0f1419 !important;
+      color: #f8fafc !important;
+    }
+    body.dark-theme .navbar-skeleton {
+      background: #1e293b !important;
+      border-bottom-color: #334155 !important;
+    }
+  </style>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "UnifyNetwork LLC",
+    "url": "https://unifynetworkllc.com",
+    "logo": "https://unifynetworkllc.com/assets/logo.png",
+    "description": "Professional call center solutions provider offering customer support, sales generation, and technical assistance services.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-xxx-xxx-xxxx",
+      "contactType": "customer service",
+      "availableLanguage": ["English"]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/unifynetworkllc",
+      "https://twitter.com/unifynetworkllc"
+    ]
+  }
+  </script>
+  
+  <!-- Google Maps - Deferred Loading -->
+  <script>
+    function initMap() {
+      // Google Maps initialization will be handled by the component
+    }
+  </script>
 </head>
-<body class="mat-typography">
-  <app-root></app-root>
+<body class="mat-typography light-theme">
+  <app-root>
+    <!-- Performance-Optimized Loading Skeleton -->
+    <div class="loading">
+      <div class="navbar-skeleton"></div>
+      <div class="hero-skeleton">
+        <div style="text-align: center; color: white;">
+          <div style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem;">UnifyNetwork LLC</div>
+          <div style="font-size: 1.25rem; opacity: 0.9;">Professional Call Center Solutions</div>
+          <div style="margin-top: 2rem; font-size: 1rem; opacity: 0.8;">Loading...</div>
+        </div>
+      </div>
+    </div>
+  </app-root>
+  
+  <!-- Deferred Google Maps Loading -->
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4HgPNSWiaeMYxZOWRsQDYc6w4eaLIU3M&callback=initMap"></script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle with Gradient -->
+  <circle cx="90" cy="90" r="90" fill="url(#circleGradient)" />
+  
+  <!-- Stylized 'U' Shape -->
+  <path d="M54 63v36c0 14.912 12.088 27 27 27h18c14.912 0 27-12.088 27-27V63" 
+        stroke="white" 
+        stroke-width="13.5" 
+        stroke-linecap="round"
+        fill="none" />
+  
+  <!-- Stylized 'N' Shape -->
+  <path d="M54 126V72l36 54V72" 
+        stroke="white" 
+        stroke-width="13.5" 
+        stroke-linecap="round"
+        fill="none" />
+  
+  <!-- Headset Arc -->
+  <path d="M36 81c0-29.823 24.177-54 54-54s54 24.177 54 54" 
+        stroke="white" 
+        stroke-width="9" 
+        stroke-linecap="round"
+        fill="none" />
+  
+  <!-- Left Headphone -->
+  <circle cx="36" cy="90" r="11.25" fill="white" />
+  
+  <!-- Right Headphone -->
+  <circle cx="144" cy="90" r="11.25" fill="white" />
+  
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="circleGradient" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" style="stop-color:#06d6a0"/>
+      <stop offset="100%" style="stop-color:#0ea5e9"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,154 +1,520 @@
-<div class="about-container" data-aos="fade-up">
-  <!-- CEO Statement Section -->
-  <div class="ceo-statement" data-aos="fade-in">
-    <div class="ceo-quote">
-      <img src="../../../assets/CEOImg.jpg" alt="CEO" class="ceo-image" />
-      <blockquote class="quote">
-        "At Unify Network, we believe that technology should simplify life, not complicate it. Our dedication to excellence and passion for innovation drives us to continually push the boundaries of what’s possible."
+<!-- Professional About Page for Call Center Business -->
+
+<!-- Hero Section -->
+<section class="about-hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="pi pi-building icon"></i>
+        <span>About UnifyNetwork</span>
+      </div>
+      <h1 class="hero-title">
+        Leading the Future of 
+        <span class="text-highlight">Call Center Excellence</span>
+      </h1>
+      <p class="hero-subtitle">
+        With over 8 years of experience, we've built a reputation for delivering 
+        exceptional customer service solutions that drive business growth and customer satisfaction.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Global Clients</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1M+</span>
+          <span class="stat-label">Calls Handled Monthly</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Countries Served</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">99.9%</span>
+          <span class="stat-label">Uptime Record</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CEO Leadership Section -->
+<section class="ceo-section section-padding" >
+  <div class="container">
+    <div class="ceo-content">
+      <div class="ceo-info">
+        <div class="section-badge">
+          <i class="pi pi-user"></i>
+          <span>Leadership</span>
+        </div>
+        <h2 class="section-title">Message from Our CEO</h2>
+        <blockquote class="ceo-quote">
+          "At UnifyNetwork, we don't just handle calls—we create connections. Our mission is to transform every customer interaction into an opportunity for businesses to build lasting relationships. With cutting-edge technology and a team of dedicated professionals, we're not just keeping up with the future of customer service—we're defining it."
       </blockquote>
-      <p class="ceo-name">- Hashir Afsar Yousafzai, CEO Unify Network</p>
-    </div>
-  </div>
-
-  <!-- About Header Section -->
-  <div class="about-header" >
-    <h1>About Unify Network</h1>
-    <p>Discover our journey, mission, and what drives us to provide exceptional service globally.</p>
-  </div>
-
-  <!-- Mission, Vision, and Goal Section -->
-  <div class="about-sections">
-    <div class="about-section">
-      <h2>Our Mission</h2>
-      <p>
-        At Unify Network, our mission is to connect businesses globally with cutting-edge technology solutions while maintaining integrity, transparency, and customer satisfaction at the core of everything we do.
-      </p>
-      <ul>
-        <li><strong>Integrity:</strong> Honesty and ethical conduct in all aspects.</li>
-        <li><strong>Innovation:</strong> Forward-thinking solutions to solve challenges creatively.</li>
-        <li><strong>Customer Satisfaction:</strong> Your satisfaction drives us forward.</li>
-      </ul>
-    </div>
-
-    <div class="about-section">
-      <h2>Our Vision</h2>
-      <p>
-        To be the leading global technology partner, empowering businesses to thrive in an interconnected world. We aim to create lasting value through innovation and sustainable practices.
-      </p>
-      <ul>
-        <li><strong>Global Reach:</strong> Seamlessly connecting businesses worldwide.</li>
-        <li><strong>Sustainability:</strong> Positively impacting business and community.</li>
-        <li><strong>Technological Excellence:</strong> Setting new standards for innovation.</li>
-      </ul>
-    </div>
-
-    <div class="about-section">
-      <h2>Our Goal</h2>
-      <p>
-        Our goal is to foster a culture of continuous innovation and to remain at the forefront of industry trends. We strive to provide unparalleled customer experiences and maintain long-lasting partnerships with businesses across the globe.
-      </p>
-      <ul>
-        <li><strong>Continuous Innovation:</strong> Constantly evolving and improving solutions.</li>
-        <li><strong>Industry Leadership:</strong> Becoming global leaders in tech solutions.</li>
-        <li><strong>Global Partnerships:</strong> Building relationships that lead to mutual growth.</li>
-      </ul>
-    </div>
-  </div>
-
-<!-- Team Members Slider Section -->
-<div class="team-slider" data-aos="fade-in">
-  <h2>Meet Our Team</h2>
-  <div class="card">
-    <p-carousel
-    [value]="teamMembers"
-    [numVisible]="slidesToShow"
-    [numScroll]="scrollStep"
-    [circular]="true"
-    [autoplayInterval]="5000"
-    [responsiveOptions]="responsiveOptions">
-    <ng-template let-member pTemplate="item">
-      <div class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4 team-member-card">
-        <div class="team-member-image">
-          <img
-            [src]="member.imageUrl"
-            alt="{{ member.name }} profile picture"
-            style="width: 300px; height: 300px; border-radius: 50%;"
-            class="w-full rounded-border">
-        </div>
-        <div class="team-member-info">
-          <div class="team-member-name">{{ member.name }}</div>
-          <div class="team-member-role">{{ member.designation }}</div>
-        </div>
-      </div>
-    </ng-template>
-  </p-carousel>
-
-  </div>
-</div>
-
-
-  <!-- Office Culture and Ethics Section -->
-<!-- Office Culture and Ethics Section -->
-<div class="culture-ethics" data-aos="fade-left">
-  <h2>Our Office Culture & Work Ethics</h2>
-  <p>
-    At Unify Network, we believe that our office culture is integral to our success. We support creativity, trust, and transparency, ensuring long-term growth and success.
-  </p>
-  <h3>Location</h3>
-  <p>Our headquarters is in Kalispell City, Montana. With offices worldwide to better serve our clients.</p>
-
-  <!-- Google Map -->
-  <div class="map-container" style="height: 400px; width: 100%;">
-    <google-map [center]="center" [zoom]="zoom" height="400px" width="100%">
-      <map-marker [position]="center" [label]="businessName"></map-marker>
-    </google-map>
-  </div>
-</div>
-
-  <!-- Milestones Section -->
-  <div class="milestones" data-aos="fade-right">
-    <h2>Our Milestones</h2>
-  <mat-stepper orientation="vertical">
-    <!-- Step 1: Milestones Header -->
-    <mat-step>
-      <ng-template matStepLabel>milestone 1</ng-template>
-      <ng-template matStepContent>
-          <div class="milestone">
-            <h3>2017</h3>
-            <p>Founded with a mission to connect businesses globally.</p>
+        <div class="ceo-signature">
+          <h4>Hashir Afsar Yousafzai</h4>
+          <p>Chief Executive Officer & Founder</p>
+          <div class="ceo-credentials">
+            <span>📞 Call Center Industry Expert</span>
+            <span>🏆 Customer Service Innovation Leader</span>
+            <span>🌍 Global Business Strategist</span>
           </div>
-        <button mat-button matStepperNext>Next</button>
-      </ng-template>
-    </mat-step>
-
-    <!-- Step 2: More Content (Optional) -->
-    <mat-step>
-      <ng-template matStepLabel>milestone 2</ng-template>
-      <ng-template matStepContent>
-        <div class="milestone">
-          <h3>2020</h3>
-          <p>Reached 1,000+ global clients.</p>
         </div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </ng-template>
-    </mat-step>
-
-    <!-- Step 3: Milestones Recap or Other Content -->
-    <mat-step>
-      <ng-template matStepLabel>milestone 3</ng-template>
-      <div class="milestone">
-        <h3>2025</h3>
-        <p>Expanded into 3+ countries worldwide.</p>
       </div>
-      <button mat-button matStepperPrevious>Back</button>
-    </mat-step>
-  </mat-stepper>
-</div>
-
-  <!-- Footer Section -->
-  <div class="footer" data-aos="fade-up">
-    <h2>Join Us in Shaping the Future</h2>
-    <p>Together, we can create a more connected and innovative world.</p>
+      <div class="ceo-image-container">
+        <img src="assets/CEOImg.jpg" alt="CEO Hashir Afsar Yousafzai" class="ceo-image" />
+        <div class="image-overlay">
+          <div class="overlay-content">
+            <i class="pi pi-verified"></i>
+            <span>Certified Customer Experience Leader</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- Mission, Vision & Values Section -->
+<section class="values-section section-padding" >
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-badge">
+        <i class="pi pi-flag"></i>
+        <span>Our Foundation</span>
+      </div>
+      <h2 class="section-title">Mission, Vision & Core Values</h2>
+      <p class="section-subtitle">
+        The principles that guide everything we do at UnifyNetwork
+      </p>
+  </div>
+
+    <div class="values-grid">
+      <div class="value-card"  >
+        <div class="value-icon">
+          <i class="pi pi-flag"></i>
+        </div>
+        <h3>Our Mission</h3>
+        <p>
+          To revolutionize customer service by providing world-class call center solutions 
+          that enhance customer experiences, drive business growth, and create lasting 
+          partnerships through innovation, reliability, and excellence.
+        </p>
+        <div class="value-highlights">
+          <div class="highlight-item">
+            <i class="pi pi-phone"></i>
+            <span>24/7 Customer Excellence</span>
+          </div>
+          <div class="highlight-item">
+            <i class="pi pi-chart-line"></i>
+            <span>Business Growth Focus</span>
+          </div>
+          <div class="highlight-item">
+            <i class="pi pi-handshake"></i>
+            <span>Long-term Partnerships</span>
+          </div>
+        </div>
+    </div>
+
+      <div class="value-card"  >
+        <div class="value-icon">
+          <i class="pi pi-eye"></i>
+        </div>
+        <h3>Our Vision</h3>
+        <p>
+          To be the global leader in call center solutions, setting industry standards 
+          for customer service excellence while empowering businesses to build 
+          stronger relationships with their customers worldwide.
+        </p>
+        <div class="value-highlights">
+          <div class="highlight-item">
+            <i class="pi pi-globe"></i>
+            <span>Global Industry Leadership</span>
+          </div>
+          <div class="highlight-item">
+            <i class="pi pi-star"></i>
+            <span>Service Excellence Standards</span>
+          </div>
+          <div class="highlight-item">
+            <i class="pi pi-users"></i>
+            <span>Customer Relationship Building</span>
+          </div>
+        </div>
+    </div>
+
+      <div class="value-card"  >
+        <div class="value-icon">
+          <i class="pi pi-heart"></i>
+        </div>
+        <h3>Our Values</h3>
+        <p>
+          Our core values of integrity, innovation, and customer-centricity drive 
+          every decision we make and every service we provide, ensuring consistent 
+          excellence in all our interactions.
+        </p>
+        <div class="value-highlights">
+          <div class="highlight-item">
+            <i class="pi pi-shield"></i>
+            <span>Integrity & Trust</span>
+          </div>
+          <div class="highlight-item">
+            <i class="pi pi-lightbulb"></i>
+            <span>Continuous Innovation</span>
+          </div>
+          <div class="highlight-item">
+            <i class="pi pi-heart"></i>
+            <span>Customer-Centric Approach</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Excellence Section -->
+<section class="team-section">
+  <div class="container">
+    <div class="team-badge">
+      <i class="pi pi-users"></i>
+      <span>Our Team</span>
+    </div>
+
+    <h2 class="team-title">
+      Meet Our <span class="highlight">Expert</span> <span class="accent">Team</span>
+    </h2>
+
+    <p class="team-subtitle">
+      Dedicated professionals committed to delivering exceptional call center experiences
+    </p>
+
+    <div class="team-grid">
+      <div class="team-member" *ngFor="let member of teamMembers">
+        <div class="member-image">
+          <img [src]="member.imageUrl" [alt]="member.name + ' profile picture'">
+          <div class="member-overlay">
+            <div class="member-social">
+              <a href="#" class="social-link">
+                <i class="pi pi-linkedin"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="pi pi-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>{{ member.name }}</h3>
+          <p>{{ member.designation }}</p>
+          <div class="member-tags">
+            <span class="tag">Customer Service</span>
+            <span class="tag">Team Leadership</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-nav">
+      <button class="nav-btn prev" (click)="previousTeamMembers()">
+        <i class="pi pi-chevron-left"></i>
+      </button>
+      <button class="nav-btn next" (click)="nextTeamMembers()">
+        <i class="pi pi-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Team Stats -->
+    <div class="team-stats">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="pi pi-graduation-cap"></i>
+        </div>
+        <div class="stat-info">
+          <h4>100+</h4>
+          <p>Certified Agents</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="pi pi-globe"></i>
+        </div>
+        <div class="stat-info">
+          <h4>25+</h4>
+          <p>Languages Supported</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="pi pi-trophy"></i>
+        </div>
+        <div class="stat-info">
+          <h4>15+</h4>
+          <p>Years Experience</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="pi pi-star"></i>
+        </div>
+        <div class="stat-info">
+          <h4>98%</h4>
+          <p>Customer Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Location & Facilities Section -->
+<section class="location-section section-padding">
+  <div class="container">
+    <div class="location-badge">
+      <i class="pi pi-map-marker"></i>
+      <span>Our Location</span>
+    </div>
+
+    <h1 class="location-title">
+      State-of-the-Art <span class="highlight">Call Center</span> <span class="accent">Facilities</span>
+    </h1>
+
+    <p class="location-subtitle">
+      Our headquarters in Kalispell, Montana features cutting-edge technology and 
+      world-class infrastructure designed specifically for call center excellence.
+    </p>
+
+    <div class="facilities-grid">
+      <div class="facility-card">
+        <div class="facility-icon">
+          <i class="pi pi-building"></i>
+        </div>
+        <h3>Modern Infrastructure</h3>
+        <p>State-of-the-art facilities with redundant systems ensuring 99.9% uptime</p>
+      </div>
+
+      <div class="facility-card">
+        <div class="facility-icon">
+          <i class="pi pi-shield"></i>
+        </div>
+        <h3>Secure Operations</h3>
+        <p>ISO 27001 certified security protocols protecting customer data</p>
+      </div>
+
+      <div class="facility-card">
+        <div class="facility-icon">
+          <i class="pi pi-cloud"></i>
+        </div>
+        <h3>Cloud Technology</h3>
+        <p>Advanced cloud-based systems enabling seamless scalability</p>
+      </div>
+
+      <div class="facility-card">
+        <div class="facility-icon">
+          <i class="pi pi-headphones"></i>
+        </div>
+        <h3>Agent Workstations</h3>
+        <p>Ergonomic, technology-enabled workstations for optimal performance</p>
+      </div>
+    </div>
+
+    <div class="map-section">
+      <div class="map-container">
+        <google-map [center]="center" [zoom]="zoom" height="400px" width="100%">
+          <map-marker [position]="center" [label]="businessName"></map-marker>
+        </google-map>
+      </div>
+
+      <div class="location-details">
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="pi pi-map-marker"></i>
+          </div>
+          <div class="detail-content">
+            <h4>Address</h4>
+            <p>1001 S Main ST STE 600, Kalispell, MT 59901</p>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="pi pi-clock"></i>
+          </div>
+          <div class="detail-content">
+            <h4>Hours</h4>
+            <p>24/7 Operations Center</p>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="pi pi-users"></i>
+          </div>
+          <div class="detail-content">
+            <h4>Capacity</h4>
+            <p>500+ Seat Capacity</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Milestones & Growth Section -->
+<section class="milestones-section section-padding" >
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-badge">
+        <i class="pi pi-chart-line"></i>
+        <span>Our Journey</span>
+      </div>
+      <h2 class="section-title">Growth <span class="text-highlight">Milestones</span></h2>
+      <p class="section-subtitle">
+        Key achievements that mark our journey to becoming a call center industry leader
+      </p>
+          </div>
+
+    <div class="milestone-timeline">
+      <div class="milestone-item">
+        <div class="milestone-year">
+          <span class="year">2017</span>
+          <div class="year-line"></div>
+        </div>
+        <div class="milestone-content">
+          <div class="milestone-header">
+            <h3>Company Founded</h3>
+            <div class="milestone-icon">
+              <i class="pi pi-flag"></i>
+            </div>
+          </div>
+          <p>UnifyNetwork established with a vision to revolutionize call center services</p>
+          <div class="milestone-stats">
+            <div class="stat-item">
+              <i class="pi pi-building"></i>
+              <span>First Office</span>
+            </div>
+            <div class="stat-item">
+              <i class="pi pi-users"></i>
+              <span>10 Team Members</span>
+            </div>
+            <div class="stat-item">
+              <i class="pi pi-phone"></i>
+              <span>1K Calls/Month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="milestone-item">
+        <div class="milestone-year">
+          <span class="year">2020</span>
+          <div class="year-line"></div>
+        </div>
+        <div class="milestone-content">
+          <div class="milestone-header">
+            <h3>Major Expansion</h3>
+            <div class="milestone-icon">
+              <i class="pi pi-chart-line"></i>
+            </div>
+          </div>
+          <p>Reached 500+ global clients and expanded our service portfolio significantly</p>
+          <div class="milestone-stats">
+            <div class="stat-item">
+              <i class="pi pi-globe"></i>
+              <span>500+ Clients</span>
+            </div>
+            <div class="stat-item">
+              <i class="pi pi-users"></i>
+              <span>100+ Agents</span>
+            </div>
+            <div class="stat-item">
+              <i class="pi pi-phone"></i>
+              <span>100K Calls/Month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="milestone-item">
+        <div class="milestone-year">
+          <span class="year">2023</span>
+          <div class="year-line"></div>
+        </div>
+        <div class="milestone-content">
+          <div class="milestone-header">
+            <h3>Technology Innovation</h3>
+            <div class="milestone-icon">
+              <i class="pi pi-cog"></i>
+            </div>
+          </div>
+          <p>Launched AI-powered customer service solutions and multilingual support</p>
+          <div class="milestone-stats">
+            <div class="stat-item">
+              <i class="pi pi-bolt"></i>
+              <span>AI Integration</span>
+            </div>
+            <div class="stat-item">
+              <i class="pi pi-globe"></i>
+              <span>25+ Languages</span>
+            </div>
+            <div class="stat-item">
+              <i class="pi pi-phone"></i>
+              <span>500K Calls/Month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="milestone-item">
+        <div class="milestone-year">
+          <span class="year">2025</span>
+          <div class="year-line"></div>
+        </div>
+        <div class="milestone-content">
+          <div class="milestone-header">
+            <h3>Industry Leadership</h3>
+            <div class="milestone-icon">
+              <i class="pi pi-star"></i>
+            </div>
+          </div>
+          <p>Recognized as a leading call center provider serving 50+ countries worldwide</p>
+          <div class="milestone-stats">
+            <div class="stat-item">
+              <i class="pi pi-trophy"></i>
+              <span>Industry Leader</span>
+            </div>
+            <div class="stat-item">
+              <i class="pi pi-globe"></i>
+              <span>50+ Countries</span>
+            </div>
+            <div class="stat-item">
+              <i class="pi pi-phone"></i>
+              <span>1M+ Calls/Month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to Transform Your Customer Experience?</h2>
+      <p class="cta-subtitle">Join hundreds of businesses that trust UnifyNetwork for their call center needs</p>
+      <div class="cta-buttons">
+        <a routerLink="/get-quote" class="cta-button primary">
+          <i class="pi pi-phone"></i>
+          Get Free Consultation
+        </a>
+        <a routerLink="/contact" class="cta-button secondary">
+          <i class="pi pi-envelope"></i>
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+

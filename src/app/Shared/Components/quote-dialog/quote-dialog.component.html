@@ -1,0 +1,184 @@
+<p-dialog 
+  [(visible)]="visible"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{width: '90%', maxWidth: '600px'}"
+  [closeOnEscape]="showCloseButton"
+  [dismissableMask]="showCloseButton"
+  [blockScroll]="true"
+  header="Get a Free Quote"
+  [closable]="showCloseButton && !loading">
+  
+  <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()" class="quote-form">
+    <!-- Success Message -->
+    <div *ngIf="success" class="success-message">
+      <i class="pi pi-check-circle"></i>
+      <p>Thank you for your interest! We'll contact you shortly.</p>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="error" class="error-message">
+      <i class="pi pi-exclamation-circle"></i>
+      <p>{{error}}</p>
+    </div>
+
+    <!-- Form Fields -->
+    <div class="form-grid" *ngIf="!success">
+      <!-- Name -->
+      <div class="form-field">
+        <label for="name">Full Name *</label>
+        <input 
+          id="name"
+          type="text"
+          pInputText
+          formControlName="name"
+          [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('name')?.errors}"
+          placeholder="Enter your full name">
+        <small class="error-text" *ngIf="submitted && quoteForm.get('name')?.errors?.['required']">
+          Name is required
+        </small>
+      </div>
+
+      <!-- Phone -->
+      <div class="form-field">
+        <label for="phone">Phone Number *</label>
+        <input 
+          id="phone"
+          type="tel"
+          pInputText
+          formControlName="phone"
+          [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('phone')?.errors}"
+          placeholder="e.g., +923001234567">
+        <small class="error-text" *ngIf="submitted && quoteForm.get('phone')?.errors?.['required']">
+          Phone number is required
+        </small>
+        <small class="error-text" *ngIf="submitted && quoteForm.get('phone')?.errors?.['invalidPhone']">
+          Please enter a valid Pakistani phone number
+        </small>
+      </div>
+
+      <!-- Email -->
+      <div class="form-field">
+        <label for="email">Email Address *</label>
+        <input 
+          id="email"
+          type="email"
+          pInputText
+          formControlName="email"
+          [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('email')?.errors}"
+          placeholder="Enter your email">
+        <small class="error-text" *ngIf="submitted && quoteForm.get('email')?.errors?.['required']">
+          Email is required
+        </small>
+        <small class="error-text" *ngIf="submitted && quoteForm.get('email')?.errors?.['email']">
+          Please enter a valid email address
+        </small>
+      </div>
+
+      <!-- Company -->
+      <div class="form-field">
+        <label for="company">Company Name</label>
+        <input 
+          id="company"
+          type="text"
+          pInputText
+          formControlName="company"
+          placeholder="Your company name (optional)">
+      </div>
+
+      <!-- Service Type -->
+      <div class="form-field">
+        <label for="serviceType">Service Type *</label>
+        <p-select
+          id="serviceType"
+          formControlName="serviceType"
+          [options]="serviceTypes"
+          placeholder="Select a service"
+          [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('serviceType')?.errors}"
+          styleClass="w-full">
+        </p-select>
+        <small class="error-text" *ngIf="submitted && quoteForm.get('serviceType')?.errors?.['required']">
+          Please select a service type
+        </small>
+      </div>
+
+      <!-- Agent Count -->
+      <div class="form-field">
+        <label for="agentCount">Number of Agents Needed</label>
+        <input 
+          id="agentCount"
+          type="number"
+          pInputText
+          formControlName="agentCount"
+          placeholder="Approximate number of agents">
+      </div>
+
+      <!-- Message -->
+      <div class="form-field full-width">
+        <label for="message">Message *</label>
+        <textarea 
+          id="message"
+          pTextarea
+          formControlName="message"
+          [rows]="3"
+          [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('message')?.errors}"
+          placeholder="Please describe your requirements"></textarea>
+        <small class="error-text" *ngIf="submitted && quoteForm.get('message')?.errors?.['required']">
+          Please provide some details about your requirements
+        </small>
+      </div>
+
+      <!-- Preferred Contact Method -->
+      <div class="form-field">
+        <label>Preferred Contact Method *</label>
+        <div class="contact-method">
+          <p-radioButton
+            name="preferredContact"
+            value="phone"
+            formControlName="preferredContact"
+            label="Phone">
+          </p-radioButton>
+          <p-radioButton
+            name="preferredContact"
+            value="email"
+            formControlName="preferredContact"
+            label="Email">
+          </p-radioButton>
+        </div>
+      </div>
+
+      <!-- Best Time to Call -->
+      <div class="form-field" *ngIf="quoteForm.get('preferredContact')?.value === 'phone'">
+        <label for="bestTimeToCall">Best Time to Call</label>
+        <input 
+          id="bestTimeToCall"
+          type="text"
+          pInputText
+          formControlName="bestTimeToCall"
+          placeholder="e.g., Weekdays 2-5 PM">
+      </div>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div class="dialog-footer" *ngIf="!success">
+        <button 
+          pButton
+          type="button" 
+          label="Cancel" 
+          class="p-button-text" 
+          (click)="hide()"
+          [disabled]="loading">
+        </button>
+        <button 
+          pButton
+          type="submit" 
+          label="Submit Quote Request" 
+          class="p-button-primary"
+          (click)="onSubmit()"
+          [loading]="loading">
+        </button>
+    </div>
+  </ng-template>
+</p-dialog>

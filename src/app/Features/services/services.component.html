@@ -1,12 +1,97 @@
-<div class="service-grid" data-aos="fade-in">
-  <div class="service-card" *ngFor="let service of services">
-    <div class="service-image" [style.backgroundImage]="'url(' + service.imageUrl + ')'" data-aos="fade-right">
-      <div class="service-overlay">
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
-        <button mat-button       [routerLink]="['/services-detail', service.title]"
-        >Learn More</button>
+<!-- Professional Services Page -->
+<div class="services-page">
+  <!-- Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="pi pi-briefcase"></i>
+          <span>Our Services</span>
+        </div>
+        <h1 class="hero-title">
+          Comprehensive Call Center Solutions for 
+          <span class="text-highlight">Every Business Need</span>
+        </h1>
+        <p class="hero-subtitle">
+          From customer support to sales generation, we provide end-to-end call center 
+          services that drive results and enhance customer satisfaction.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Service Categories</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Support Available</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Satisfied Clients</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Services Grid Section -->
+  <section class="services-section">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card" *ngFor="let service of services; let i = index" [routerLink]="['/services-detail', service.title]">
+          <div class="service-image-wrapper">
+            <img [src]="service.imageUrl" [alt]="service.title" class="service-image">
+            <div class="service-overlay">
+              <i class="pi service-icon" [ngClass]="getServiceIcon(service.title)"></i>
+            </div>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">{{ service.title }}</h3>
+            <p class="service-description">{{ service.description }}</p>
+            <div class="service-features">
+              <div class="feature" *ngFor="let feature of getServiceFeatures(service.title).slice(0, 3)">
+                <i class="pi pi-check-circle"></i>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+            <div class="service-action">
+              <p-button 
+                label="Learn More" 
+                icon="pi pi-arrow-right" 
+                iconPos="right"
+                severity="info" 
+                class="learn-more-btn">
+              </p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="services-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Customer Experience?</h2>
+        <p>Get started with our professional call center solutions today</p>
+        <div class="cta-actions">
+          <p-button 
+            label="Get Free Quote" 
+            icon="pi pi-phone" 
+            severity="success" 
+            class="cta-primary">
+          </p-button>
+          <p-button 
+            label="Contact Us" 
+            icon="pi pi-envelope" 
+            [outlined]="true" 
+            severity="secondary" 
+            routerLink="/contact" 
+            class="cta-secondary">
+          </p-button>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

@@ -1,93 +1,275 @@
 <!-- Hero Section -->
-<header class="hero" data-aos="fade-in">
-  <div class="hero-overlay">
-    <p-galleria
-      [value]="images"
-      [(activeIndex)]="activeIndex"
-      [showItemNavigators]="true"
-      [showThumbnails]="false"
-      [showIndicators]="true"
-      [showItemNavigatorsOnHover]="true"
-      [circular]="true"
-      [containerStyle]="{ 'margin-bottom': '20px' }"
-      [autoPlay]="true"
-      [transitionInterval]="5000"
-    >
-      <ng-template pTemplate="item" let-item>
-        <div class="galleria-item-container">
-          <img
-            *ngIf="item.type === 'image' || item.type === 'gif'"
-            [src]="item.previewImageSrc"
-            [alt]="item.alt"
-            [title]="item.title"
-            class="galleria-image"
-            object-fit="cover"
-            object-position="center center"
-          />
-          <video
-          *ngIf="item.type === 'video'"
-          [src]="item.previewImageSrc"
-          [title]="item.title"
-          class="galleria-video"
-          object-fit="cover"
-          object-position="center center"
-          autoplay
-        ></video>
-        </div>
-      </ng-template>
-    </p-galleria>
+<section class="hero-section">
 
-    <div *ngIf="showHeroContent" class="hero-content">
-      <h1 class="hero-title">Your Trusted Call Center Solution</h1>
-      <p class="hero-subtitle">Seamless customer support for a connected world.</p>
-      <button mat-raised-button color="accent" class="cta-button">
-        Get Started
-      </button>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="pi pi-verified"></i>
+        <span>#1 Call Center Solutions Provider</span>
+      </div>
+      
+      <h1 class="hero-title">
+        Transform Your Customer Experience with 
+        <span class="hero-highlight">Professional Call Center Solutions</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        24/7 multilingual support, advanced technology, and dedicated professionals 
+        to elevate your customer service and drive business growth.
+      </p>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">50K+</span>
+          <span class="stat-label">Calls Handled Daily</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">99.9%</span>
+          <span class="stat-label">Uptime Guarantee</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Support Available</span>
+        </div>
+      </div>
+      
+      <div class="hero-actions">
+        <p-button 
+          label="Get Free Quote" 
+          icon="pi pi-phone" 
+          severity="success" 
+          class="cta-button primary">
+        </p-button>
+        <p-button 
+          label="Watch Demo" 
+          icon="pi pi-play" 
+          [outlined]="true" 
+          severity="secondary" 
+          class="cta-button secondary">
+        </p-button>
+      </div>
+      
+      <div class="hero-trust-indicators">
+        <p class="trust-text">Trusted by 500+ businesses worldwide</p>
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <i class="pi pi-shield"></i>
+            <span>ISO Certified</span>
+          </div>
+          <div class="trust-badge">
+            <i class="pi pi-globe"></i>
+            <span>50+ Languages</span>
+          </div>
+          <div class="trust-badge">
+            <i class="pi pi-users"></i>
+            <span>1000+ Agents</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="floating-card card-1">
+        <i class="pi pi-headphones"></i>
+        <div>
+          <h4>Live Support</h4>
+          <p>Real-time assistance</p>
+        </div>
+        </div>
+      
+      <div class="floating-card card-2">
+        <i class="pi pi-chart-bar"></i>
+        <div>
+          <h4>Analytics</h4>
+          <p>Detailed reporting</p>
     </div>
   </div>
-</header>
-
-
-<!-- Services Section -->
-<section class="services" data-aos="fade-up">
-  <h1>Our Services</h1>
-  <div class="service-cards">
-    <div
-      class="service-card"
-      *ngFor="let service of services"
-      [routerLink]="['/services-detail', service.title]"
-    >
-      <mat-card>
-        <mat-card-header>
-          <mat-icon class="service-icon">{{ service.icon }}</mat-icon>
-          <mat-card-title>{{ service.title }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ service.description }}</p>
-        </mat-card-content>
-      </mat-card>
+      
+      <div class="floating-card card-3">
+        <i class="pi pi-globe"></i>
+        <div>
+          <h4>Multilingual</h4>
+          <p>Global reach</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Services Section -->
+<section class="services-section section-padding">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">
+        <i class="pi pi-briefcase"></i>
+        <span>Our Services</span>
+      </div>
+      <h2 class="section-title">
+        Comprehensive Call Center Solutions for 
+        <span class="text-highlight">Every Business Need</span>
+      </h2>
+      <p class="section-subtitle">
+        From customer support to sales generation, we provide end-to-end call center 
+        services that drive results and enhance customer satisfaction.
+      </p>
+    </div>
 
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services.slice(0, 6)" [routerLink]="['/services-detail', service.title]">
+        <div class="service-icon-wrapper">
+          <i class="pi service-icon" [ngClass]="getServiceIcon(service.title)"></i>
+        </div>
+        <div class="service-content">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <div class="service-arrow">
+            <i class="pi pi-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
+    <div class="services-cta">
+      <p-button 
+        label="View All Services" 
+        icon="pi pi-briefcase" 
+        severity="info" 
+        [routerLink]="['/services']">
+      </p-button>
+    </div>
+  </div>
+</section>
 <!-- Statistics Section -->
-<section class="statistics-container">
-  <h1>Our Accomplishments</h1>
-  <div class="statistics" data-aos="fade-right">
-    <div class="stat-card">
-      <h3>{{ statistics.callsHandled }}</h3>
-      <p>Calls Handled</p>
+<section class="stats-section section-padding">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-badge">
+        <i class="pi pi-chart-line"></i>
+        <span>Our Success</span>
+      </div>
+      <h2 class="section-title">
+        Proven Track Record of 
+        <span class="text-highlight">Excellence</span>
+      </h2>
+      <p class="section-subtitle">
+        Numbers that speak to our commitment to delivering outstanding call center services
+      </p>
     </div>
-    <div class="stat-card">
-      <h3>{{ statistics.clientsServed }}</h3>
-      <p>Clients Served</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="pi pi-phone"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ statistics.callsHandled }}</h3>
+          <p class="stat-label">Calls Handled Successfully</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="pi pi-briefcase"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ statistics.clientsServed }}</h3>
+          <p class="stat-label">Happy Clients Worldwide</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="pi pi-users"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ statistics.teams }}</h3>
+          <p class="stat-label">Professional Agents</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="pi pi-clock"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">24/7</h3>
+          <p class="stat-label">Round-the-Clock Support</p>
+        </div>
+      </div>
     </div>
-    <div class="stat-card">
-      <h3>{{ statistics.teams }}</h3>
-      <p>Expert Teams</p>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section section-padding">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-badge">
+        <i class="pi pi-star"></i>
+        <span>Client Testimonials</span>
+      </div>
+      <h2 class="section-title">
+        What Our <span class="text-highlight">Clients Say</span>
+      </h2>
+      <p class="section-subtitle">
+        Real feedback from businesses that trust us with their customer experience
+      </p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <div class="stars">
+            <i class="pi pi-star" *ngFor="let star of [1,2,3,4,5]"></i>
+          </div>
+          <p>"UnifyNetwork has transformed our customer service operations. Their 24/7 support and professional agents have significantly improved our customer satisfaction rates."</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <i class="pi pi-user"></i>
+          </div>
+          <div class="author-info">
+            <h4>Sarah Johnson</h4>
+            <p>CEO, TechCorp Solutions</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <div class="stars">
+            <i class="pi pi-star" *ngFor="let star of [1,2,3,4,5]"></i>
+          </div>
+          <p>"The multilingual support and professional approach have helped us expand into new markets with confidence. Highly recommended!"</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <i class="pi pi-user"></i>
+          </div>
+          <div class="author-info">
+            <h4>Michael Rodriguez</h4>
+            <p>Operations Director, GlobalTrade Inc</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <div class="stars">
+            <i class="pi pi-star" *ngFor="let star of [1,2,3,4,5]"></i>
+          </div>
+          <p>"Outstanding service quality and reliability. UnifyNetwork's team handles our customers with the same care we would provide ourselves."</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <i class="pi pi-user"></i>
+          </div>
+          <div class="author-info">
+            <h4>Emma Thompson</h4>
+            <p>Customer Success Manager, RetailPro</p>
+          </div>
+    </div>
+    </div>
     </div>
   </div>
 </section>

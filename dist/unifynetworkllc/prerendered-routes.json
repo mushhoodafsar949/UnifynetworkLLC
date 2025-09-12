@@ -1,18 +1,3 @@
 {
-  "routes": {
-    "/": {},
-    "/about": {},
-    "/contact": {},
-    "/services": {},
-    "/services-detail/1": {},
-    "/services-detail/10": {},
-    "/services-detail/2": {},
-    "/services-detail/3": {},
-    "/services-detail/4": {},
-    "/services-detail/5": {},
-    "/services-detail/6": {},
-    "/services-detail/7": {},
-    "/services-detail/8": {},
-    "/services-detail/9": {}
-  }
+  "routes": {}
 }

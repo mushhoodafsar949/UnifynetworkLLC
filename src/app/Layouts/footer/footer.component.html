@@ -1,55 +1,97 @@
-<!-- Footer -->
+<!-- Modern Professional Footer -->
 <footer class="footer">
-  <div class="footer-content">
-    <!-- Company Info -->
-    <div class="brand">
-      <h4>Call Center Solutions</h4>
-      <p>Your Trusted Partner in Customer Engagement</p>
-    </div>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Company Info -->
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <i class="pi pi-headphones logo-icon"></i>
+            <div class="brand-text">
+              <h3>UnifyNetwork</h3>
+              <p>Call Center Solutions</p>
+            </div>
+          </div>
+          <p class="brand-description">
+            Leading provider of professional call center services, delivering 
+            exceptional customer experiences with 24/7 multilingual support.
+          </p>
+          <!-- Social Media -->
+          <div class="social-links">
+            <a href="#" target="_blank" class="social-link">
+              <i class="pi pi-facebook"></i>
+            </a>
+            <a href="#" target="_blank" class="social-link">
+              <i class="pi pi-linkedin"></i>
+            </a>
+            <a href="#" target="_blank" class="social-link">
+              <i class="pi pi-twitter"></i>
+            </a>
+            <a href="#" target="_blank" class="social-link">
+              <i class="pi pi-instagram"></i>
+            </a>
+          </div>
+        </div>
 
-    <!-- Quick Links -->
-    <div class="links">
-      <h5>Quick Links</h5>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Our Services</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </div>
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <h5>Services</h5>
+          <ul>
+            <li><a routerLink="/services">Customer Support</a></li>
+            <li><a routerLink="/services">Sales & Lead Generation</a></li>
+            <li><a routerLink="/services">Technical Support</a></li>
+            <li><a routerLink="/services">Live Chat Support</a></li>
+            <li><a routerLink="/services">Order Processing</a></li>
+          </ul>
+        </div>
 
-    <!-- Contact Info -->
-    <div class="contact-info">
-      <h5>Contact Us</h5>
-      <p>Email: <a href="mailto:info@unifynetworkllc.us">info&#64;unifynetworkllc.us</a></p>
-      <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-      <p>Address: 1001 S Main ST STE 600 Kalispell, MT 59901</p>
-    </div>
+        <!-- Company Links -->
+        <div class="footer-links">
+          <h5>Company</h5>
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/about">About Us</a></li>
+            <li><a routerLink="/services">Our Services</a></li>
+            <li><a routerLink="/contact">Contact Us</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
 
-    <!-- Social Media -->
-    <div class="social-media-container">
-      <h5>Follow Us</h5>
-      <div class="social-media">
-        <a href="#" target="_blank" class="social-icon">
-          <mat-icon>facebook</mat-icon>
-        </a>
-        <a href="#" target="_blank" class="social-icon">
-          <mat-icon>linkedin</mat-icon>
-        </a>
-        <a href="#" target="_blank" class="social-icon">
-          <mat-icon>twitter</mat-icon>
-        </a>
-        <a href="#" target="_blank" class="social-icon">
-          <mat-icon>instagram</mat-icon>
-        </a>
+        <!-- Contact & Newsletter -->
+        <div class="footer-contact">
+          <h5>Get In Touch</h5>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="pi pi-envelope"></i>
+              <span>info&#64;unifynetworkllc.us</span>
+            </div>
+            <div class="contact-item">
+              <i class="pi pi-phone"></i>
+              <span>+1 (234) 567-890</span>
+            </div>
+            <div class="contact-item">
+              <i class="pi pi-map-marker"></i>
+              <span>1001 S Main ST STE 600, Kalispell, MT 59901</span>
+            </div>
+          </div>
+          
+
+        </div>
       </div>
     </div>
   </div>
 
-
-  <!-- Copyright -->
+  <!-- Copyright & Legal -->
   <div class="footer-bottom">
-    <p>&copy; {{ currentYear }} Call Center Solutions. All Rights Reserved.</p>
+    <div class="container">
+      <div class="footer-bottom-content">
+        <p>&copy; {{ currentYear }} UnifyNetwork LLC. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>

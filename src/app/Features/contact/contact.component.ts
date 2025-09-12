@@ -1,13 +1,14 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // import styles
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { Textarea } from 'primeng/textarea';
+import { SelectModule } from 'primeng/select';
+// Removed AOS for better performance
+// Removed AOS styles import
 
 @Component({
   selector: 'app-contact',
@@ -15,9 +16,10 @@ import 'aos/dist/aos.css'; // import styles
   styleUrls: ['./contact.component.css'],
   standalone: true,
   imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
+    ButtonModule,
+    InputTextModule,
+    Textarea,
+    SelectModule,
     ReactiveFormsModule,
     CommonModule,
     RouterModule,
@@ -25,6 +27,22 @@ import 'aos/dist/aos.css'; // import styles
 })
 export class ContactComponent implements AfterViewInit  {
   contactForm: FormGroup;
+  
+  serviceOptions = [
+    { label: 'Customer Support', value: 'customer-support' },
+    { label: 'Sales & Lead Generation', value: 'sales-generation' },
+    { label: 'Technical Support', value: 'technical-support' },
+    { label: 'Live Chat Support', value: 'live-chat' },
+    { label: 'Custom Solution', value: 'custom-solution' }
+  ];
+  
+  volumeOptions = [
+    { label: 'Under 100 calls/day', value: 'under-100' },
+    { label: '100-500 calls/day', value: '100-500' },
+    { label: '500-1,000 calls/day', value: '500-1000' },
+    { label: '1,000-5,000 calls/day', value: '1000-5000' },
+    { label: 'Over 5,000 calls/day', value: 'over-5000' }
+  ];
 
   // Example images for the "Unify Network Details" section
   heroImages = [
@@ -56,12 +74,6 @@ export class ContactComponent implements AfterViewInit  {
     }
   }
   ngAfterViewInit() {
-    // Ensure AOS is initialized only in the browser
-    if (typeof window !== 'undefined') {
-      AOS.init({
-        duration: 1000,
-        once: true, // Trigger the animation only once
-      });
-    }
+    // Removed AOS initialization for better performance
   }
 }

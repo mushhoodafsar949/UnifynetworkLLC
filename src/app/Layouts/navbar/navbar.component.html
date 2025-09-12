@@ -1,48 +1,82 @@
-<mat-toolbar class="navbar">
-  <!-- Logo Section -->
-  <div class="navbar-logo-container">
-    <a routerLink="/" class="navbar-logo">UnifyNetwork</a>
-  </div>
-
-  <!-- Navigation Links -->
-  <div class="navbar-links" *ngIf="!menuOpen">
-    <a mat-button routerLink="/" routerLinkActive="active">Home</a>
-    <a mat-button routerLink="/services" routerLinkActive="active">Services</a>
-    <a mat-button routerLink="/about" routerLinkActive="active">About</a>
-    <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
-    <button
-    pButton
-    label="Toggle Theme"
-    icon="pi pi-sun"
-    (click)="themeService.toggleTheme()">
-  </button>
-  </div>
-
-  <!-- Hamburger Button -->
-  <button mat-icon-button (click)="toggleMenu()" class="menu-button">
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
-
-<!-- Sidebar -->
-<mat-sidenav-container *ngIf="menuOpen" class="sidebar-container">
-  <mat-sidenav
-    mode="over"
-    opened
-    (closed)="menuOpen = false"
-    class="sidebar"
-  >
-    <div class="sidebar-content">
-      <a mat-button routerLink="/" (click)="menuOpen = false">Home</a>
-      <a mat-button routerLink="/services" (click)="menuOpen = false">Services</a>
-      <a mat-button routerLink="/about" (click)="menuOpen = false">About</a>
-      <a mat-button routerLink="/contact" (click)="menuOpen = false">Contact</a>
-      <button
-      pButton
-      label="Toggle Theme"
-      icon="pi pi-sun"
-      (click)="themeService.toggleTheme()">
-    </button>
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo Section -->
+    <div class="nav-logo">
+      <a routerLink="/" class="logo-link">
+        <img src="assets/logo.svg" alt="UnifyNetwork Logo" class="logo-img">
+        <div class="logo-text">
+          <span>UnifyNetwork</span>
+          <small>Call Center Solutions</small>
+        </div>
+      </a>
     </div>
-  </mat-sidenav>
-</mat-sidenav-container>
+
+    <!-- Desktop Navigation -->
+    <div class="nav-menu">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="pi pi-home"></i>
+        <span>Home</span>
+      </a>
+      <a routerLink="/services" routerLinkActive="active">
+        <i class="pi pi-briefcase"></i>
+        <span>Services</span>
+      </a>
+      <a routerLink="/about" routerLinkActive="active">
+        <i class="pi pi-info-circle"></i>
+        <span>About Us</span>
+      </a>
+      <a routerLink="/contact" routerLinkActive="active">
+        <i class="pi pi-envelope"></i>
+        <span>Contact</span>
+      </a>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="nav-actions">
+      <button class="theme-btn" (click)="themeService.toggleTheme()" [pTooltip]="themeService.isDarkMode() ? 'Light Mode' : 'Dark Mode'" tooltipPosition="bottom">
+        <i class="pi" [ngClass]="getThemeIconClass()"></i>
+      </button>
+      <a class="quote-btn" routerLink="/get-quote" routerLinkActive="active">
+        <i class="pi pi-phone"></i>
+        <span>Get Quote</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" (click)="toggleMenu()">
+      <i class="pi" [ngClass]="menuOpen ? 'pi-times' : 'pi-bars'"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.show]="menuOpen">
+    <div class="mobile-nav">
+      <a routerLink="/" (click)="toggleMenu()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="pi pi-home"></i>
+        <span>Home</span>
+      </a>
+      <a routerLink="/services" (click)="toggleMenu()" routerLinkActive="active">
+        <i class="pi pi-briefcase"></i>
+        <span>Services</span>
+      </a>
+      <a routerLink="/about" (click)="toggleMenu()" routerLinkActive="active">
+        <i class="pi pi-info-circle"></i>
+        <span>About Us</span>
+      </a>
+      <a routerLink="/contact" (click)="toggleMenu()" routerLinkActive="active">
+        <i class="pi pi-envelope"></i>
+        <span>Contact</span>
+      </a>
+      <div class="mobile-actions">
+        <button class="theme-btn" (click)="themeService.toggleTheme()">
+          <i class="pi" [ngClass]="getThemeIconClass()"></i>
+          <span>{{themeService.isDarkMode() ? 'Light Mode' : 'Dark Mode'}}</span>
+        </button>
+        <a class="quote-btn" routerLink="/get-quote" routerLinkActive="active" >
+          <i class="pi pi-phone"></i>
+          <span>Get Quote</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

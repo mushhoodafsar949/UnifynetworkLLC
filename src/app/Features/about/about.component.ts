@@ -1,12 +1,9 @@
-import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common'; // Check platform type
-import { MatCardModule } from '@angular/material/card';
-import { CarouselModule } from 'primeng/carousel';
-import { MatButtonModule } from '@angular/material/button';
-import { MatStepperModule } from '@angular/material/stepper';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 import { GoogleMapsModule } from '@angular/google-maps';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
+// Removed AOS for better performance
 
 export interface TeamMember {
   name: string;
@@ -18,14 +15,14 @@ export interface TeamMember {
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
-  imports: [MatCardModule, CarouselModule, MatButtonModule, GoogleMapsModule, MatStepperModule],
+  imports: [CommonModule, ButtonModule, CardModule, GoogleMapsModule],
   standalone: true,
 })
-export class AboutComponent implements OnInit, AfterViewInit {
+export class AboutComponent implements OnInit {
+  currentYear = new Date().getFullYear();
   teamMembers: TeamMember[] = [];
-  slidesToShow = 3;
-  scrollStep = 3;
-  responsiveOptions: any[] = [];
+  private currentPage = 0;
+  private itemsPerPage = 3;
   milestones = [
     { year: 2010, description: 'Founded with a mission to connect businesses globally.' },
     { year: 2015, description: 'Reached 1,000+ global clients.' },
@@ -41,54 +38,38 @@ export class AboutComponent implements OnInit, AfterViewInit {
   zoom: number = 18;
   businessName = 'Unify Network LLC';
 
-  // Platform check for browser environment
-  isBrowser: boolean;
+  constructor() {}
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {
-    this.isBrowser = isPlatformBrowser(platformId); // Determine if running on browser
+  // Navigation methods
+  nextTeamMembers() {
+    const maxPages = Math.ceil(this.allTeamMembers.length / this.itemsPerPage) - 1;
+    this.currentPage = Math.min(this.currentPage + 1, maxPages);
+    this.updateVisibleTeamMembers();
   }
+
+  previousTeamMembers() {
+    this.currentPage = Math.max(this.currentPage - 1, 0);
+    this.updateVisibleTeamMembers();
+  }
+
+  private updateVisibleTeamMembers() {
+    const start = this.currentPage * this.itemsPerPage;
+    this.teamMembers = this.allTeamMembers.slice(start, start + this.itemsPerPage);
+  }
+
+  private allTeamMembers: TeamMember[] = [
+    { name: 'Muhammad Fahad', designation: 'Director HR', imageUrl: 'assets/carousel-aboutscreen/img1.jpg' },
+    { name: 'Jane Smith', designation: 'Marketing Manager', imageUrl: 'assets/carousel-aboutscreen/img2.jpg' },
+    { name: 'Michael Brown', designation: 'Software Developer', imageUrl: 'assets/carousel-aboutscreen/img3.jpg' },
+    { name: 'David Lee', designation: 'Sales Manager', imageUrl: 'assets/carousel-aboutscreen/img4.jpg' },
+    { name: 'Sarah Jones', designation: 'HR Manager', imageUrl: 'assets/carousel-aboutscreen/img5.jpg' },
+    { name: 'John Doe', designation: 'Project Manager', imageUrl: 'assets/carousel-aboutscreen/img6.jpg' },
+    { name: 'Emily Davis', designation: 'UI/UX Designer', imageUrl: 'assets/carousel-aboutscreen/img7.jpg' },
+    { name: 'Daniel Wilson', designation: 'Software Engineer', imageUrl: 'assets/carousel-aboutscreen/img8.jpg' },
+    { name: 'Amanda Garcia', designation: 'Marketing Specialist', imageUrl: 'assets/carousel-aboutscreen/img10.jpg' }
+  ];
 
   ngOnInit(): void {
-    // Team members data
-    this.teamMembers = [
-      { name: 'Muhammad Fahad', designation: 'Director HR', imageUrl: '../../assets/carousel-aboutscreen/img1.jpg' },
-      { name: 'Jane Smith', designation: 'Marketing Manager', imageUrl: '../../assets/carousel-aboutscreen/img2.jpg' },
-      { name: 'Michael Brown', designation: 'Software Developer', imageUrl: '../../assets/carousel-aboutscreen/img3.jpg' },
-      { name: 'David Lee', designation: 'Sales Manager', imageUrl: '../../assets/carousel-aboutscreen/img4.jpg' },
-      { name: 'Sarah Jones', designation: 'HR Manager', imageUrl: '../../assets/carousel-aboutscreen/img5.jpg' },
-      { name: 'John Doe', designation: 'Project Manager', imageUrl: '../../assets/carousel-aboutscreen/img6.jpg' },
-      { name: 'Emily Davis', designation: 'UI/UX Designer', imageUrl: '../../assets/carousel-aboutscreen/img7.jpg' },
-      { name: 'Daniel Wilson', designation: 'Software Engineer', imageUrl: '../../assets/carousel-aboutscreen/img8.jpg' },
-      { name: 'Amanda Garcia', designation: 'Marketing Specialist', imageUrl: '../../assets/carousel-aboutscreen/img10.jpg' },
-    ];
-
-    this.responsiveOptions = [
-      {
-        breakpoint: '1024px',
-        numVisible: 3,
-        numScroll: 1,
-      },
-      {
-        breakpoint: '768px',
-        numVisible: 2,
-        numScroll: 1,
-      },
-      {
-        breakpoint: '576px',
-        numVisible: 1,
-        numScroll: 1,
-      },
-    ];
-
-  }
-
-  ngAfterViewInit(): void {
-    // Initialize AOS only if it's running in the browser
-    if (this.isBrowser) {
-      AOS.init({
-        duration: 1000,
-        once: true, // Trigger animations only once
-      });
-    }
+    this.updateVisibleTeamMembers();
   }
 }

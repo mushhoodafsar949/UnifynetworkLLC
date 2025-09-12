@@ -1,13 +1,14 @@
 import { AfterViewInit, Component } from '@angular/core';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // import styles
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+// Removed AOS for better performance
+// Removed AOS styles import
 @Component({
   selector: 'app-services',
-  imports: [CommonModule,MatButtonModule,MatGridListModule,RouterLink],
+  standalone: true,
+  imports: [CommonModule, ButtonModule, CardModule, RouterLink],
   templateUrl: './services.component.html',
   styleUrl: './services.component.css'
 })
@@ -104,12 +105,39 @@ export class ServicesComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
-      // Ensure AOS is initialized only in the browser
-      if (typeof window !== 'undefined') {
-        AOS.init({
-          duration: 1000,
-          once: true, // Trigger the animation only once
-        });
-      }
-    }
+    // Removed AOS initialization for better performance
+  }
+
+
+  getServiceFeatures(serviceTitle: string): string[] {
+    const featureMap: { [key: string]: string[] } = {
+      'Customer Support': ['24/7 availability', 'Multilingual support', 'Issue resolution'],
+      'Sales & Lead Generation': ['Lead qualification', 'Sales conversion', 'CRM integration'],
+      'Technical Support': ['Expert technicians', 'Remote assistance', 'Problem diagnosis'],
+      'Live Chat Support': ['Real-time responses', 'Multi-platform', 'Quick resolution'],
+      'Order Processing': ['Secure transactions', 'Order tracking', 'Payment processing'],
+      'Inbound Campaign': ['Call routing', 'Customer analytics', 'Quality assurance'],
+      'Outbound Campaign': ['Targeted outreach', 'Script optimization', 'Performance tracking'],
+      'Help Desk Services': ['Ticket management', 'Knowledge base', 'Escalation protocols'],
+      'Survey Management': ['Custom surveys', 'Data analysis', 'Response tracking'],
+      'Appointment Scheduling': ['Calendar integration', 'Automated reminders', 'Confirmation system']
+    };
+    return featureMap[serviceTitle] || ['Professional service', 'Quality support', 'Expert team'];
+  }
+
+  getServiceIcon(serviceTitle: string): string {
+    const iconMap: {[key: string]: string} = {
+      'Customer Support': 'pi-headphones',
+      'Sales & Lead Generation': 'pi-chart-line',
+      'Technical Support': 'pi-cog',
+      'Live Chat Support': 'pi-comments',
+      'Order Processing': 'pi-shopping-cart',
+      'Inbound Campaign': 'pi-phone',
+      'Outbound Campaign': 'pi-send',
+      'Help Desk Services': 'pi-question-circle',
+      'Survey Management': 'pi-chart-bar',
+      'Appointment Scheduling': 'pi-calendar'
+    };
+    return iconMap[serviceTitle] || 'pi-briefcase';
+  }
 }

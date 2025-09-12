@@ -1,22 +1,16 @@
-import { Component, AfterViewInit, model, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatTabsModule } from '@angular/material/tabs';
 import { GalleriaModule } from 'primeng/galleria';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 import { RouterLink } from '@angular/router';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // import styles
+// Removed AOS for better performance
+// Removed AOS styles import
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,GalleriaModule, MatCardModule,MatTabsModule, MatIconModule, MatGridListModule, MatButtonModule, MatDividerModule, MatFormFieldModule, MatInputModule,RouterLink],
+  imports: [CommonModule, GalleriaModule, ButtonModule, CardModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -132,13 +126,24 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit() {
-    // Ensure AOS is initialized only in the browser
-    if (typeof window !== 'undefined') {
-      AOS.init({
-        duration: 1000,
-        once: true, // Trigger the animation only once
-      });
-    }
+    // Removed AOS initialization for better performance
+  }
+
+  getServiceIcon(serviceTitle: string): string {
+    const iconMap: {[key: string]: string} = {
+      'Customer Support': 'pi-headphones',
+      'Sales & Lead Generation': 'pi-chart-line',
+      'Technical Support': 'pi-cog',
+      'Live Chat Support': 'pi-comments',
+      'Order Processing': 'pi-shopping-cart',
+      'Inbound Call Handling': 'pi-phone',
+      'Outbound Campaigns': 'pi-send',
+      'Help Desk Services': 'pi-question-circle',
+      'Survey Management': 'pi-chart-bar',
+      'Appointment Scheduling': 'pi-calendar',
+      'Software Development': 'pi-code'
+    };
+    return iconMap[serviceTitle] || 'pi-briefcase';
   }
 
 }
