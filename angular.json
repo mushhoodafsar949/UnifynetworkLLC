@@ -61,9 +61,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "ssr": false,
-              "outputMode": "static"
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
