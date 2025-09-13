@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">AI Analytics Dashboard</text>
+  
+  <!-- Quick Stats -->
+  <g transform="translate(30, 90)">
+    <rect width="270" height="120" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Sentiment Score</text>
+    <text x="20" y="80" fill="#3b82f6" font-family="Arial" font-size="36" font-weight="bold">92%</text>
+    <text x="20" y="100" fill="#10b981" font-family="Arial" font-size="14">↑ 5% from last month</text>
+  </g>
+  
+  <g transform="translate(320, 90)">
+    <rect width="270" height="120" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Customer Intent</text>
+    <text x="20" y="80" fill="#10b981" font-family="Arial" font-size="36" font-weight="bold">85%</text>
+    <text x="20" y="100" fill="#10b981" font-family="Arial" font-size="14">Accuracy Rate</text>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <rect width="270" height="120" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Predictive Insights</text>
+    <text x="20" y="80" fill="#6366f1" font-family="Arial" font-size="36" font-weight="bold">127</text>
+    <text x="20" y="100" fill="#10b981" font-family="Arial" font-size="14">Generated Today</text>
+  </g>
+  
+  <g transform="translate(900, 90)">
+    <rect width="270" height="120" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">AI Models</text>
+    <text x="20" y="80" fill="#f59e0b" font-family="Arial" font-size="36" font-weight="bold">12</text>
+    <text x="20" y="100" fill="#64748b" font-family="Arial" font-size="14">Active Models</text>
+  </g>
+  
+  <!-- Main Content Area -->
+  <g transform="translate(30, 240)">
+    <!-- Sentiment Analysis Chart -->
+    <rect width="740" height="250" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Sentiment Analysis Trends</text>
+    
+    <!-- Chart Grid -->
+    <g transform="translate(40, 60)">
+      <line x1="0" y1="160" x2="680" y2="160" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="120" x2="680" y2="120" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="80" x2="680" y2="80" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="40" x2="680" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+      
+      <!-- Data Lines -->
+      <path d="M 0 120 Q 170 40, 340 140 T 680 80" stroke="#3b82f6" fill="none" stroke-width="3"/>
+      <path d="M 0 160 Q 170 100, 340 180 T 680 120" stroke="#10b981" fill="none" stroke-width="3"/>
+    </g>
+  </g>
+  
+  <g transform="translate(790, 240)">
+    <!-- AI Model Performance -->
+    <rect width="380" height="250" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Model Performance</text>
+    
+    <!-- Model Stats -->
+    <g transform="translate(20, 60)">
+      <rect width="340" height="40" rx="4" fill="#f8fafc"/>
+      <text x="10" y="25" fill="#1e293b" font-family="Arial" font-size="14">Sentiment Analysis</text>
+      <rect x="200" width="120" height="40" rx="4" fill="#dbeafe"/>
+      <text x="220" y="25" fill="#1e293b" font-family="Arial" font-size="14">98% Accuracy</text>
+    </g>
+    
+    <g transform="translate(20, 110)">
+      <rect width="340" height="40" rx="4" fill="#f8fafc"/>
+      <text x="10" y="25" fill="#1e293b" font-family="Arial" font-size="14">Intent Recognition</text>
+      <rect x="200" width="120" height="40" rx="4" fill="#dcfce7"/>
+      <text x="220" y="25" fill="#1e293b" font-family="Arial" font-size="14">95% Accuracy</text>
+    </g>
+    
+    <g transform="translate(20, 160)">
+      <rect width="340" height="40" rx="4" fill="#f8fafc"/>
+      <text x="10" y="25" fill="#1e293b" font-family="Arial" font-size="14">Predictive Analytics</text>
+      <rect x="200" width="120" height="40" rx="4" fill="#f3e8ff"/>
+      <text x="220" y="25" fill="#1e293b" font-family="Arial" font-size="14">92% Accuracy</text>
+    </g>
+  </g>
+  
+  <!-- Bottom Section -->
+  <g transform="translate(30, 520)">
+    <!-- Predictive Insights -->
+    <rect width="1140" height="250" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">AI-Generated Insights</text>
+    
+    <g transform="translate(20, 60)">
+      <rect width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Customer Satisfaction Trend</text>
+      <text x="20" y="60" fill="#64748b" font-family="Arial" font-size="14">Predicted 12% increase in CSAT scores next month</text>
+    </g>
+    
+    <g transform="translate(380, 60)">
+      <rect width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Resource Optimization</text>
+      <text x="20" y="60" fill="#64748b" font-family="Arial" font-size="14">Recommended 15% shift in resource allocation</text>
+    </g>
+    
+    <g transform="translate(740, 60)">
+      <rect width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Peak Time Prediction</text>
+      <text x="20" y="60" fill="#64748b" font-family="Arial" font-size="14">Expected surge in activity next Tuesday</text>
+    </g>
+  </g>
+</svg>

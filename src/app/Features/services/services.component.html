@@ -38,7 +38,7 @@
   <section class="services-section">
     <div class="container">
       <div class="services-grid">
-        <div class="service-card" *ngFor="let service of services; let i = index" [routerLink]="['/services-detail', service.title]">
+        <div class="service-card" *ngFor="let service of services; let i = index" [routerLink]="['/service-detail', service.title]">
           <div class="service-image-wrapper">
             <img [src]="service.imageUrl" [alt]="service.title" class="service-image">
             <div class="service-overlay">
@@ -60,6 +60,7 @@
                 icon="pi pi-arrow-right" 
                 iconPos="right"
                 severity="info" 
+                [routerLink]="['/service-detail', service.title]"
                 class="learn-more-btn">
               </p-button>
             </div>
@@ -80,6 +81,7 @@
             label="Get Free Quote" 
             icon="pi pi-phone" 
             severity="success" 
+            routerLink="/get-quote"
             class="cta-primary">
           </p-button>
           <p-button 

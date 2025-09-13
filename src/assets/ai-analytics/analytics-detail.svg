@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Detailed Analytics</text>
+  
+  <!-- Main Content -->
+  <g transform="translate(30, 90)">
+    <!-- Sentiment Analysis -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Customer Sentiment Analysis</text>
+    
+    <!-- Donut Chart -->
+    <circle cx="160" cy="180" r="100" fill="none" stroke="#3b82f6" stroke-width="30" stroke-dasharray="502 628"/>
+    <circle cx="160" cy="180" r="100" fill="none" stroke="#10b981" stroke-width="30" stroke-dasharray="94 628" transform="rotate(-90 160 180)"/>
+    <circle cx="160" cy="180" r="100" fill="none" stroke="#f59e0b" stroke-width="30" stroke-dasharray="31 628" transform="rotate(-18 160 180)"/>
+    
+    <!-- Legend -->
+    <g transform="translate(320, 120)">
+      <circle cx="10" cy="10" r="6" fill="#3b82f6"/>
+      <text x="30" y="15" fill="#1e293b" font-family="Arial" font-size="14">Positive (80%)</text>
+      
+      <circle cx="10" cy="40" r="6" fill="#10b981"/>
+      <text x="30" y="45" fill="#1e293b" font-family="Arial" font-size="14">Neutral (15%)</text>
+      
+      <circle cx="10" cy="70" r="6" fill="#f59e0b"/>
+      <text x="30" y="75" fill="#1e293b" font-family="Arial" font-size="14">Negative (5%)</text>
+    </g>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <!-- Intent Recognition -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Intent Recognition</text>
+    
+    <!-- Bar Chart -->
+    <g transform="translate(40, 60)">
+      <rect width="80" height="200" rx="4" fill="#3b82f6"/>
+      <text x="40" y="230" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Support</text>
+      
+      <rect x="100" width="80" height="150" rx="4" fill="#10b981"/>
+      <text x="140" y="230" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Inquiry</text>
+      
+      <rect x="200" width="80" height="120" rx="4" fill="#6366f1"/>
+      <text x="240" y="230" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Feedback</text>
+      
+      <rect x="300" width="80" height="100" rx="4" fill="#f59e0b"/>
+      <text x="340" y="230" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Sales</text>
+    </g>
+  </g>
+  
+  <g transform="translate(30, 430)">
+    <!-- Trend Analysis -->
+    <rect width="1140" height="340" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">AI-Powered Trend Analysis</text>
+    
+    <!-- Line Chart -->
+    <g transform="translate(40, 60)">
+      <!-- Grid Lines -->
+      <line x1="0" y1="240" x2="1060" y2="240" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="180" x2="1060" y2="180" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="120" x2="1060" y2="120" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="60" x2="1060" y2="60" stroke="#e2e8f0" stroke-width="1"/>
+      
+      <!-- Data Lines -->
+      <path d="M 0 180 Q 265 60, 530 200 T 1060 120" stroke="#3b82f6" fill="none" stroke-width="3"/>
+      <path d="M 0 200 Q 265 150, 530 220 T 1060 160" stroke="#10b981" fill="none" stroke-width="3"/>
+      
+      <!-- Prediction Zone -->
+      <rect x="800" y="0" width="260" height="240" fill="url(#prediction-gradient)" opacity="0.1"/>
+      <text x="880" y="20" fill="#6366f1" font-family="Arial" font-size="12">AI Prediction</text>
+    </g>
+    
+    <!-- Gradient Definition -->
+    <defs>
+      <linearGradient id="prediction-gradient" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#6366f1" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/>
+      </linearGradient>
+    </defs>
+  </g>
+</svg>

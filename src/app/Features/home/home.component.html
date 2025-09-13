@@ -38,14 +38,8 @@
           label="Get Free Quote" 
           icon="pi pi-phone" 
           severity="success" 
+          routerLink="/get-quote"
           class="cta-button primary">
-        </p-button>
-        <p-button 
-          label="Watch Demo" 
-          icon="pi pi-play" 
-          [outlined]="true" 
-          severity="secondary" 
-          class="cta-button secondary">
         </p-button>
       </div>
       
@@ -115,7 +109,7 @@
     </div>
 
     <div class="services-grid">
-      <div class="service-card" *ngFor="let service of services.slice(0, 6)" [routerLink]="['/services-detail', service.title]">
+      <div class="service-card" *ngFor="let service of services.slice(0, 6)" [routerLink]="['/service-detail', service.title]">
         <div class="service-icon-wrapper">
           <i class="pi service-icon" [ngClass]="getServiceIcon(service.title)"></i>
         </div>
@@ -194,6 +188,86 @@
         <div class="stat-content">
           <h3 class="stat-number">24/7</h3>
           <p class="stat-label">Round-the-Clock Support</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Premium Features Section -->
+<section class="premium-section section-padding">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-badge">
+        <i class="pi pi-star"></i>
+        <span>Premium Features</span>
+      </div>
+      <h2 class="section-title">
+        Advanced Tools for <span class="text-highlight">Enterprise Success</span>
+      </h2>
+      <p class="section-subtitle">
+        Exclusive features designed to enhance your service management and business growth
+      </p>
+    </div>
+
+    <div class="premium-features-grid">
+      <!-- Client Portal Feature -->
+      <div class="premium-feature-card" [routerLink]="['/client-portal']">
+        <div class="feature-icon">
+          <i class="pi pi-desktop"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Client Portal Dashboard</h3>
+          <p>Access real-time analytics, manage services, and track performance through our intuitive client portal.</p>
+          <ul class="feature-list">
+            <li><i class="pi pi-chart-line"></i> Real-time Analytics</li>
+            <li><i class="pi pi-cog"></i> Service Management</li>
+            <li><i class="pi pi-file-pdf"></i> Custom Reports</li>
+            <li><i class="pi pi-clock"></i> 24/7 Access</li>
+          </ul>
+          <div class="feature-cta">
+            <span>Explore Portal <i class="pi pi-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI-Powered Analytics -->
+      <div class="premium-feature-card" [routerLink]="['/ai-analytics']">
+        <div class="feature-icon">
+          <i class="pi pi-bolt"></i>
+        </div>
+        <div class="feature-content">
+          <h3>AI-Powered Analytics</h3>
+          <p>Leverage advanced AI algorithms to gain deeper insights into customer interactions and service performance.</p>
+          <ul class="feature-list">
+            <li><i class="pi pi-chart-bar"></i> Predictive Analytics</li>
+            <li><i class="pi pi-users"></i> Customer Behavior Analysis</li>
+            <li><i class="pi pi-chart-line"></i> Performance Forecasting</li>
+            <li><i class="pi pi-cog"></i> Automated Optimization</li>
+          </ul>
+          <div class="feature-cta">
+            <span>Explore Analytics <i class="pi pi-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Integration -->
+      <div class="premium-feature-card" [routerLink]="['/custom-integration']">
+        <div class="feature-icon">
+          <i class="pi pi-sitemap"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Custom Integration</h3>
+          <p>Seamlessly integrate our services with your existing systems and workflows for maximum efficiency.</p>
+          <ul class="feature-list">
+            <li><i class="pi pi-link"></i> API Integration</li>
+            <li><i class="pi pi-sync"></i> Real-time Sync</li>
+            <li><i class="pi pi-shield"></i> Secure Data Transfer</li>
+            <li><i class="pi pi-cog"></i> Custom Workflows</li>
+          </ul>
+          <div class="feature-cta">
+            <span>Explore Integration <i class="pi pi-arrow-right"></i></span>
+          </div>
         </div>
       </div>
     </div>

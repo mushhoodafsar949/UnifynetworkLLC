@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Customer Behavior Analysis</text>
+  
+  <!-- Main Content -->
+  <g transform="translate(30, 90)">
+    <!-- Interaction Patterns -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Interaction Patterns</text>
+    
+    <!-- Pattern Chart -->
+    <g transform="translate(40, 60)">
+      <!-- Time Slots -->
+      <rect width="80" height="40" fill="#dbeafe"/>
+      <text x="40" y="25" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">Phone</text>
+      <text x="40" y="65" fill="#3b82f6" font-family="Arial" font-size="14">45%</text>
+      
+      <rect x="100" width="80" height="40" fill="#dcfce7"/>
+      <text x="140" y="25" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">Chat</text>
+      <text x="140" y="65" fill="#10b981" font-family="Arial" font-size="14">30%</text>
+      
+      <rect x="200" width="80" height="40" fill="#f3e8ff"/>
+      <text x="240" y="25" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">Email</text>
+      <text x="240" y="65" fill="#6366f1" font-family="Arial" font-size="14">15%</text>
+      
+      <rect x="300" width="80" height="40" fill="#fef3c7"/>
+      <text x="340" y="25" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">Social</text>
+      <text x="340" y="65" fill="#f59e0b" font-family="Arial" font-size="14">10%</text>
+    </g>
+    
+    <!-- Interaction Flow -->
+    <g transform="translate(40, 120)">
+      <path d="M 50 50 C 100 50, 150 100, 200 50" stroke="#3b82f6" fill="none" stroke-width="2"/>
+      <path d="M 200 50 C 250 50, 300 100, 350 50" stroke="#10b981" fill="none" stroke-width="2"/>
+      <circle cx="50" cy="50" r="10" fill="#3b82f6"/>
+      <circle cx="200" cy="50" r="10" fill="#10b981"/>
+      <circle cx="350" cy="50" r="10" fill="#6366f1"/>
+    </g>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <!-- Customer Journey -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Customer Journey Analysis</text>
+    
+    <!-- Journey Map -->
+    <g transform="translate(40, 80)">
+      <!-- Stages -->
+      <rect width="100" height="60" rx="8" fill="#dbeafe"/>
+      <text x="50" y="35" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">Initial Contact</text>
+      
+      <rect x="140" width="100" height="60" rx="8" fill="#dcfce7"/>
+      <text x="190" y="35" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">Issue Discovery</text>
+      
+      <rect x="280" width="100" height="60" rx="8" fill="#f3e8ff"/>
+      <text x="330" y="35" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">Resolution</text>
+      
+      <rect x="420" width="100" height="60" rx="8" fill="#fef3c7"/>
+      <text x="470" y="35" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">Follow-up</text>
+      
+      <!-- Connections -->
+      <line x1="100" y1="30" x2="140" y2="30" stroke="#e2e8f0" stroke-width="2"/>
+      <line x1="240" y1="30" x2="280" y2="30" stroke="#e2e8f0" stroke-width="2"/>
+      <line x1="380" y1="30" x2="420" y2="30" stroke="#e2e8f0" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <g transform="translate(30, 430)">
+    <!-- Behavior Insights -->
+    <rect width="1140" height="340" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Behavior Insights</text>
+    
+    <!-- Insight Cards -->
+    <g transform="translate(20, 60)">
+      <!-- Channel Preferences -->
+      <rect width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Channel Preferences</text>
+      <text x="20" y="65" fill="#3b82f6" font-family="Arial" font-size="14">Morning: Phone Support</text>
+      <text x="20" y="85" fill="#3b82f6" font-family="Arial" font-size="14">Afternoon: Live Chat</text>
+      <text x="20" y="105" fill="#3b82f6" font-family="Arial" font-size="14">Evening: Email</text>
+      
+      <!-- Common Issues -->
+      <rect x="380" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="400" y="35" fill="#1e293b" font-family="Arial" font-size="16">Top Customer Issues</text>
+      <text x="400" y="65" fill="#10b981" font-family="Arial" font-size="14">1. Technical Support</text>
+      <text x="400" y="85" fill="#10b981" font-family="Arial" font-size="14">2. Billing Questions</text>
+      <text x="400" y="105" fill="#10b981" font-family="Arial" font-size="14">3. Product Information</text>
+      
+      <!-- Satisfaction Drivers -->
+      <rect x="760" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="780" y="35" fill="#1e293b" font-family="Arial" font-size="16">Satisfaction Drivers</text>
+      <text x="780" y="65" fill="#6366f1" font-family="Arial" font-size="14">1. Quick Response</text>
+      <text x="780" y="85" fill="#6366f1" font-family="Arial" font-size="14">2. First Call Resolution</text>
+      <text x="780" y="105" fill="#6366f1" font-family="Arial" font-size="14">3. Agent Knowledge</text>
+    </g>
+    
+    <!-- Recommendations -->
+    <g transform="translate(20, 200)">
+      <text x="0" y="0" fill="#1e293b" font-family="Arial" font-size="16">Behavior-Based Recommendations</text>
+      
+      <rect y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="50" fill="#1e293b" font-family="Arial" font-size="14">Channel Optimization</text>
+      <text x="20" y="75" fill="#3b82f6" font-family="Arial" font-size="14">Enhance live chat capacity</text>
+      
+      <rect x="380" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="400" y="50" fill="#1e293b" font-family="Arial" font-size="14">Knowledge Base</text>
+      <text x="400" y="75" fill="#10b981" font-family="Arial" font-size="14">Update technical documentation</text>
+      
+      <rect x="760" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="780" y="50" fill="#1e293b" font-family="Arial" font-size="14">Training Focus</text>
+      <text x="780" y="75" fill="#6366f1" font-family="Arial" font-size="14">Product knowledge enhancement</text>
+    </g>
+  </g>
+</svg>

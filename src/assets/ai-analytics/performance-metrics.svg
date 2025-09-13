@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Performance Metrics</text>
+  
+  <!-- Main Content -->
+  <g transform="translate(30, 90)">
+    <!-- KPI Overview -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Key Performance Indicators</text>
+    
+    <!-- KPI Cards -->
+    <g transform="translate(20, 60)">
+      <!-- Response Time -->
+      <rect width="240" height="100" rx="8" fill="#dbeafe"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="14">Avg Response Time</text>
+      <text x="20" y="65" fill="#3b82f6" font-family="Arial" font-size="24">45s</text>
+      <text x="20" y="85" fill="#64748b" font-family="Arial" font-size="12">↓ 15% improvement</text>
+      
+      <!-- Resolution Rate -->
+      <rect x="280" width="240" height="100" rx="8" fill="#dcfce7"/>
+      <text x="300" y="35" fill="#1e293b" font-family="Arial" font-size="14">Resolution Rate</text>
+      <text x="300" y="65" fill="#10b981" font-family="Arial" font-size="24">95%</text>
+      <text x="300" y="85" fill="#64748b" font-family="Arial" font-size="12">↑ 5% increase</text>
+      
+      <!-- Customer Satisfaction -->
+      <rect y="120" width="240" height="100" rx="8" fill="#f3e8ff"/>
+      <text x="20" y="155" fill="#1e293b" font-family="Arial" font-size="14">CSAT Score</text>
+      <text x="20" y="185" fill="#6366f1" font-family="Arial" font-size="24">4.8/5</text>
+      <text x="20" y="205" fill="#64748b" font-family="Arial" font-size="12">↑ 0.3 points</text>
+      
+      <!-- Agent Efficiency -->
+      <rect x="280" y="120" width="240" height="100" rx="8" fill="#fef3c7"/>
+      <text x="300" y="155" fill="#1e293b" font-family="Arial" font-size="14">Agent Efficiency</text>
+      <text x="300" y="185" fill="#f59e0b" font-family="Arial" font-size="24">92%</text>
+      <text x="300" y="205" fill="#64748b" font-family="Arial" font-size="12">↑ 7% increase</text>
+    </g>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <!-- Performance Trends -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Performance Trends</text>
+    
+    <!-- Line Chart -->
+    <g transform="translate(40, 60)">
+      <!-- Grid Lines -->
+      <line x1="0" y1="200" x2="480" y2="200" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="150" x2="480" y2="150" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="100" x2="480" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="50" x2="480" y2="50" stroke="#e2e8f0" stroke-width="1"/>
+      
+      <!-- Data Lines -->
+      <path d="M 0 150 Q 120 50, 240 170 T 480 80" stroke="#3b82f6" fill="none" stroke-width="3"/>
+      <path d="M 0 180 Q 120 120, 240 190 T 480 100" stroke="#10b981" fill="none" stroke-width="3"/>
+      <path d="M 0 160 Q 120 80, 240 150 T 480 60" stroke="#6366f1" fill="none" stroke-width="3"/>
+    </g>
+    
+    <!-- Legend -->
+    <g transform="translate(40, 280)">
+      <circle cx="10" cy="10" r="6" fill="#3b82f6"/>
+      <text x="30" y="15" fill="#1e293b" font-family="Arial" font-size="12">Response Time</text>
+      
+      <circle cx="160" cy="10" r="6" fill="#10b981"/>
+      <text x="180" y="15" fill="#1e293b" font-family="Arial" font-size="12">Resolution Rate</text>
+      
+      <circle cx="310" cy="10" r="6" fill="#6366f1"/>
+      <text x="330" y="15" fill="#1e293b" font-family="Arial" font-size="12">CSAT Score</text>
+    </g>
+  </g>
+  
+  <g transform="translate(30, 430)">
+    <!-- Performance Analysis -->
+    <rect width="1140" height="340" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Performance Analysis</text>
+    
+    <!-- Analysis Cards -->
+    <g transform="translate(20, 60)">
+      <!-- Top Performers -->
+      <rect width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Top Performing Areas</text>
+      <text x="20" y="65" fill="#3b82f6" font-family="Arial" font-size="14">1. Technical Support</text>
+      <text x="20" y="85" fill="#3b82f6" font-family="Arial" font-size="14">2. Customer Service</text>
+      <text x="20" y="105" fill="#3b82f6" font-family="Arial" font-size="14">3. Sales Support</text>
+      
+      <!-- Areas for Improvement -->
+      <rect x="380" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="400" y="35" fill="#1e293b" font-family="Arial" font-size="16">Areas for Improvement</text>
+      <text x="400" y="65" fill="#f59e0b" font-family="Arial" font-size="14">1. First Call Resolution</text>
+      <text x="400" y="85" fill="#f59e0b" font-family="Arial" font-size="14">2. Hold Times</text>
+      <text x="400" y="105" fill="#f59e0b" font-family="Arial" font-size="14">3. After Hours Support</text>
+      
+      <!-- Performance Score -->
+      <rect x="760" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="780" y="35" fill="#1e293b" font-family="Arial" font-size="16">Overall Performance Score</text>
+      <text x="780" y="65" fill="#10b981" font-family="Arial" font-size="24">94%</text>
+      <text x="780" y="95" fill="#64748b" font-family="Arial" font-size="14">↑ 4% from last quarter</text>
+    </g>
+    
+    <!-- Recommendations -->
+    <g transform="translate(20, 200)">
+      <text x="0" y="0" fill="#1e293b" font-family="Arial" font-size="16">Performance Insights</text>
+      
+      <rect y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="50" fill="#1e293b" font-family="Arial" font-size="14">Training Opportunities</text>
+      <text x="20" y="75" fill="#3b82f6" font-family="Arial" font-size="14">Advanced problem resolution</text>
+      
+      <rect x="380" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="400" y="50" fill="#1e293b" font-family="Arial" font-size="14">Process Optimization</text>
+      <text x="400" y="75" fill="#10b981" font-family="Arial" font-size="14">Streamline handoff procedures</text>
+      
+      <rect x="760" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="780" y="50" fill="#1e293b" font-family="Arial" font-size="14">Resource Allocation</text>
+      <text x="780" y="75" fill="#6366f1" font-family="Arial" font-size="14">Optimize shift scheduling</text>
+    </g>
+  </g>
+</svg>

@@ -380,15 +380,18 @@
           label="Schedule Free Consultation" 
           icon="pi pi-phone" 
           severity="success" 
+          routerLink="/get-quote"
           class="btn-lg">
         </p-button>
-        <p-button 
-          label="Download Brochure" 
-          icon="pi pi-download" 
-          [outlined]="true" 
-          severity="secondary" 
-          class="btn-lg">
-        </p-button>
+        <a href="assets/brochure.pdf" download="UnifyNetwork-Brochure.pdf">
+          <p-button 
+            label="Download Brochure" 
+            icon="pi pi-download" 
+            [outlined]="true" 
+            severity="secondary" 
+            class="btn-lg">
+          </p-button>
+        </a>
       </div>
     </div>
   </div>

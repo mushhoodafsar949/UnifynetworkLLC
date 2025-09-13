@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { RouterModule } from '@angular/router';
 import { GoogleMapsModule } from '@angular/google-maps';
 // Removed AOS for better performance
 
@@ -9,13 +10,15 @@ export interface TeamMember {
   name: string;
   designation: string;
   imageUrl: string;
+  linkedin?: string;
+  email?: string;
 }
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
-  imports: [CommonModule, ButtonModule, CardModule, GoogleMapsModule],
+  imports: [CommonModule, ButtonModule, CardModule,RouterModule, GoogleMapsModule],
   standalone: true,
 })
 export class AboutComponent implements OnInit {
@@ -58,15 +61,69 @@ export class AboutComponent implements OnInit {
   }
 
   private allTeamMembers: TeamMember[] = [
-    { name: 'Muhammad Fahad', designation: 'Director HR', imageUrl: 'assets/carousel-aboutscreen/img1.jpg' },
-    { name: 'Jane Smith', designation: 'Marketing Manager', imageUrl: 'assets/carousel-aboutscreen/img2.jpg' },
-    { name: 'Michael Brown', designation: 'Software Developer', imageUrl: 'assets/carousel-aboutscreen/img3.jpg' },
-    { name: 'David Lee', designation: 'Sales Manager', imageUrl: 'assets/carousel-aboutscreen/img4.jpg' },
-    { name: 'Sarah Jones', designation: 'HR Manager', imageUrl: 'assets/carousel-aboutscreen/img5.jpg' },
-    { name: 'John Doe', designation: 'Project Manager', imageUrl: 'assets/carousel-aboutscreen/img6.jpg' },
-    { name: 'Emily Davis', designation: 'UI/UX Designer', imageUrl: 'assets/carousel-aboutscreen/img7.jpg' },
-    { name: 'Daniel Wilson', designation: 'Software Engineer', imageUrl: 'assets/carousel-aboutscreen/img8.jpg' },
-    { name: 'Amanda Garcia', designation: 'Marketing Specialist', imageUrl: 'assets/carousel-aboutscreen/img10.jpg' }
+    { 
+      name: 'Muhammad Fahad', 
+      designation: 'Director HR', 
+      imageUrl: 'assets/carousel-aboutscreen/img1.jpg',
+      linkedin: 'https://www.linkedin.com/in/muhammad-fahad',
+      email: 'fahad@unifynetwork.com'
+    },
+    { 
+      name: 'Jane Smith', 
+      designation: 'Marketing Manager', 
+      imageUrl: 'assets/carousel-aboutscreen/img2.jpg',
+      linkedin: 'https://www.linkedin.com/in/jane-smith',
+      email: 'jane@unifynetwork.com'
+    },
+    { 
+      name: 'Michael Brown', 
+      designation: 'Software Developer', 
+      imageUrl: 'assets/carousel-aboutscreen/img3.jpg',
+      linkedin: 'https://www.linkedin.com/in/michael-brown',
+      email: 'michael@unifynetwork.com'
+    },
+    { 
+      name: 'David Lee', 
+      designation: 'Sales Manager', 
+      imageUrl: 'assets/carousel-aboutscreen/img4.jpg',
+      linkedin: 'https://www.linkedin.com/in/david-lee',
+      email: 'david@unifynetwork.com'
+    },
+    { 
+      name: 'Sarah Jones', 
+      designation: 'HR Manager', 
+      imageUrl: 'assets/carousel-aboutscreen/img5.jpg',
+      linkedin: 'https://www.linkedin.com/in/sarah-jones',
+      email: 'sarah@unifynetwork.com'
+    },
+    { 
+      name: 'John Doe', 
+      designation: 'Project Manager', 
+      imageUrl: 'assets/carousel-aboutscreen/img6.jpg',
+      linkedin: 'https://www.linkedin.com/in/john-doe',
+      email: 'john@unifynetwork.com'
+    },
+    { 
+      name: 'Emily Davis', 
+      designation: 'UI/UX Designer', 
+      imageUrl: 'assets/carousel-aboutscreen/img7.jpg',
+      linkedin: 'https://www.linkedin.com/in/emily-davis',
+      email: 'emily@unifynetwork.com'
+    },
+    { 
+      name: 'Daniel Wilson', 
+      designation: 'Software Engineer', 
+      imageUrl: 'assets/carousel-aboutscreen/img8.jpg',
+      linkedin: 'https://www.linkedin.com/in/daniel-wilson',
+      email: 'daniel@unifynetwork.com'
+    },
+    { 
+      name: 'Amanda Garcia', 
+      designation: 'Marketing Specialist', 
+      imageUrl: 'assets/carousel-aboutscreen/img10.jpg',
+      linkedin: 'https://www.linkedin.com/in/amanda-garcia',
+      email: 'amanda@unifynetwork.com'
+    }
   ];
 
   ngOnInit(): void {

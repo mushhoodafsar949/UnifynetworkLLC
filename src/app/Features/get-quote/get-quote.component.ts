@@ -428,20 +428,28 @@ Please provide me with more information about pricing and implementation.
     };
   }
 
+  private chartData: any = {
+    labels: ['Current Cost', 'Our Solution', 'Savings'],
+    datasets: [
+      {
+        data: [0, 0, 0],
+        backgroundColor: ['#ef4444', '#3b82f6', '#10b981']
+      }
+    ]
+  };
+
   getROIChartData(metrics: ROIMetrics) {
-    return {
-      labels: ['Current Cost', 'Our Solution', 'Savings'],
-      datasets: [
-        {
-          data: [
-            metrics.currentCost * 12,
-            this.calculateMonthlyPrice(this.selectedServiceDetails?.tiers.find(t => t.name === this.selectedTier)!) * 12,
-            metrics.projectedSavings
-          ],
-          backgroundColor: ['#ef4444', '#3b82f6', '#10b981']
-        }
-      ]
-    };
+    const tier = this.getSelectedTier();
+    
+    if (tier) {
+      this.chartData.datasets[0].data = [
+        metrics.currentCost * 12,
+        this.calculateMonthlyPrice(tier) * 12,
+        metrics.projectedSavings
+      ];
+    }
+    
+    return this.chartData;
   }
 
   getProductivityData(metrics: ROIMetrics) {

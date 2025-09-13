@@ -462,6 +462,36 @@ section {
 }
 
 /* ==================================================
+   FIXED COMPONENTS
+   ================================================== */
+
+app-ai-chatbot {
+  position: fixed !important;
+  bottom: 2rem !important;
+  right: 2rem !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  will-change: transform !important;
+  isolation: isolate !important;
+}
+
+app-ai-chatbot * {
+  pointer-events: auto !important;
+}
+
+/* Ensure proper stacking context for fixed elements */
+body {
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  perspective: 1px !important; /* Creates stacking context */
+}
+
+/* ==================================================
    UTILITY CLASSES
    ================================================== */
 

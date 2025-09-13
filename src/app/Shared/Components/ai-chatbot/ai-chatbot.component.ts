@@ -92,29 +92,87 @@ interface ChatMessage {
   `,
   styles: [`
     .chatbot-container {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
       width: 360px;
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      background: var(--surface-primary);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-lg);
       display: flex;
       flex-direction: column;
-      z-index: 1000;
-      transition: all 0.3s ease;
+      transform-origin: bottom right;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       max-height: 600px;
+      transform-origin: bottom right;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .chatbot-container:not(.expanded) {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    }
+
+    .chatbot-container:not(.expanded) .chat-header {
+      padding: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chatbot-container:not(.expanded) .header-content {
+      justify-content: center;
+    }
+
+    .chatbot-container:not(.expanded) .header-content span,
+    .chatbot-container:not(.expanded) .pi-chevron-down {
+      display: none;
+    }
+
+    .chatbot-container:not(.expanded) .pi-comments {
+      font-size: 1.5rem;
+      margin: 0;
+      color: white;
+    }
+
+    .chatbot-container:not(.expanded):hover {
+      transform: scale(1.1);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
     .chat-header {
       padding: 1rem;
-      background: var(--brand-primary);
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
       color: white;
-      border-radius: 1rem 1rem 0 0;
+      border-radius: 1.5rem 1.5rem 0 0;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chat-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .chat-header:hover::before {
+      left: 100%;
     }
 
     .header-content {

@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as AOS from 'aos';
+import { BehaviorSubject } from 'rxjs';
 
 interface ServiceSection {
   id: string;
@@ -47,8 +48,8 @@ interface ServiceSection {
           
           <!-- Parallax Video Background -->
           <div class="parallax-bg">
-            <video autoplay loop muted playsinline>
-              <source [src]="service.video" type="video/mp4">
+            <video autoplay loop muted playsinline [attr.data-src]="service.video" #videoElement>
+              <source type="video/mp4">
             </video>
           </div>
 
@@ -108,10 +109,111 @@ interface ServiceSection {
   `,
   styleUrls: ['./services.component.css']
 })
-export class ServicesComponent implements OnInit, AfterViewInit {
+export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('heroSection') heroSection!: ElementRef;
+  @ViewChild('videoElement') videoElements!: ElementRef[];
+
+  private observer: IntersectionObserver | null = null;
+  private scrollTriggers: ScrollTrigger[] = [];
+  private isDestroyed$ = new BehaviorSubject<boolean>(false);
 
   services: ServiceSection[] = [
+    {
+      id: 'help-desk',
+      title: 'Help Desk Services',
+      subtitle: 'Comprehensive Support Solutions',
+      description: 'Streamline your support operations with our professional help desk services. We handle inquiries, track issues, and ensure timely resolution for all customer needs.',
+      features: [
+        'Ticket Management',
+        'Issue Tracking',
+        'Service Level Agreements',
+        'Escalation Management'
+      ],
+      video: 'assets/services/help-desk-services.mp4',
+      image: 'assets/services/help-desk-services.jpg',
+      color: '#fff7ed',
+      benefits: [
+        {
+          title: 'Efficient Resolution',
+          description: 'Track and resolve issues systematically',
+          icon: 'pi-ticket'
+        },
+        {
+          title: 'Organized Support',
+          description: 'Centralized ticketing system for better management',
+          icon: 'pi-list'
+        },
+        {
+          title: 'Performance Tracking',
+          description: 'Monitor and improve support metrics',
+          icon: 'pi-chart-line'
+        }
+      ]
+    },
+    {
+      id: 'appointment-scheduling',
+      title: 'Appointment Scheduling',
+      subtitle: 'Efficient Time Management',
+      description: 'Optimize your scheduling process with our professional appointment management services. We handle bookings, confirmations, and follow-ups to ensure smooth operations.',
+      features: [
+        'Calendar Management',
+        'Automated Reminders',
+        'Resource Allocation',
+        'Schedule Optimization'
+      ],
+      video: 'assets/services/appointments.mp4',
+      image: 'assets/services/appointments.jpg',
+      color: '#fdf4ff',
+      benefits: [
+        {
+          title: 'Time Optimization',
+          description: 'Maximize resource utilization and efficiency',
+          icon: 'pi-calendar'
+        },
+        {
+          title: 'Reduced No-shows',
+          description: 'Automated reminders for better attendance',
+          icon: 'pi-bell'
+        },
+        {
+          title: 'Better Planning',
+          description: 'Efficient resource allocation and scheduling',
+          icon: 'pi-clock'
+        }
+      ]
+    },
+    {
+      id: 'software-development',
+      title: 'Software Development',
+      subtitle: 'Custom Solutions & Integration',
+      description: 'Transform your business with custom software solutions. Our expert developers create tailored applications that streamline operations and drive growth.',
+      features: [
+        'Custom Development',
+        'System Integration',
+        'API Development',
+        'Cloud Solutions'
+      ],
+      video: 'assets/services/software-development.mp4',
+      image: 'assets/services/software-development.jpg',
+      color: '#f0f7ff',
+      benefits: [
+        {
+          title: 'Custom Solutions',
+          description: 'Tailored software for your specific needs',
+          icon: 'pi-code'
+        },
+        {
+          title: 'Seamless Integration',
+          description: 'Connect systems for better efficiency',
+          icon: 'pi-sitemap'
+        },
+        {
+          title: 'Modern Technology',
+          description: 'Latest tech stack for optimal performance',
+          icon: 'pi-server'
+        }
+      ]
+    },
     {
       id: 'customer-support',
       title: 'Customer Support',
@@ -215,39 +317,89 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    // Initialize AOS with optimized settings
     AOS.init({
-      duration: 1000,
+      duration: 800,
       once: true,
-      offset: 100
+      offset: 100,
+      delay: 100,
+      throttleDelay: 99,
+      mirror: false
     });
+
+    // Initialize Intersection Observer for lazy loading videos
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const video = entry.target as HTMLVideoElement;
+            const videoSrc = video.getAttribute('data-src');
+            if (videoSrc) {
+              video.setAttribute('src', videoSrc);
+              video.load();
+              this.observer?.unobserve(video);
+            }
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+      }
+    );
   }
 
   ngAfterViewInit() {
-    // Hero Section Parallax
-    gsap.to(this.heroSection.nativeElement, {
-      backgroundPosition: '50% 100%',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: this.heroSection.nativeElement,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true
-      }
-    });
-
-    // Service Section Animations
-    this.services.forEach(service => {
-      gsap.from(`#${service.id} .service-content`, {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: `#${service.id}`,
-          start: 'top center',
-          end: 'bottom center',
-          toggleActions: 'play none none reverse'
+    // Initialize video lazy loading
+    if (this.videoElements) {
+      this.videoElements.forEach(videoRef => {
+        if (this.observer) {
+          this.observer.observe(videoRef.nativeElement);
         }
       });
+    }
+
+    // Hero Section Parallax with optimized settings
+    const heroTrigger = ScrollTrigger.create({
+      trigger: this.heroSection.nativeElement,
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 0.5,
+      onUpdate: (self) => {
+        gsap.to(this.heroSection.nativeElement, {
+          backgroundPosition: `50% ${self.progress * 100}%`,
+          duration: 0.5,
+          ease: 'power1.out'
+        });
+      }
     });
+    this.scrollTriggers.push(heroTrigger);
+
+    // Service Section Animations with batching
+    const batchAnimations = gsap.utils.toArray('.service-content').map((element) => {
+      const trigger = ScrollTrigger.create({
+        trigger: element as Element,
+        start: 'top bottom-=100',
+        onEnter: () => {
+          gsap.fromTo(element as HTMLElement,
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
+          );
+        },
+        once: true
+      });
+      this.scrollTriggers.push(trigger);
+      return trigger;
+    });
+  }
+
+  ngOnDestroy() {
+    // Clean up observers and triggers
+    this.isDestroyed$.next(true);
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+    this.scrollTriggers.forEach(trigger => trigger.kill());
   }
 }

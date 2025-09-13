@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Data Mapping</text>
+  
+  <!-- Main Content -->
+  <g transform="translate(30, 90)">
+    <!-- Source Schema -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Source Schema</text>
+    
+    <!-- Schema Fields -->
+    <g transform="translate(20, 60)">
+      <!-- Customer ID -->
+      <rect width="500" height="50" rx="4" fill="#dbeafe"/>
+      <text x="20" y="30" fill="#1e293b" font-family="Arial" font-size="14">customer_id</text>
+      <text x="400" y="30" fill="#3b82f6" font-family="Arial" font-size="14">string</text>
+      
+      <!-- Name -->
+      <rect y="60" width="500" height="50" rx="4" fill="#dcfce7"/>
+      <text x="20" y="90" fill="#1e293b" font-family="Arial" font-size="14">name</text>
+      <text x="400" y="90" fill="#10b981" font-family="Arial" font-size="14">string</text>
+      
+      <!-- Email -->
+      <rect y="120" width="500" height="50" rx="4" fill="#f3e8ff"/>
+      <text x="20" y="150" fill="#1e293b" font-family="Arial" font-size="14">email</text>
+      <text x="400" y="150" fill="#6366f1" font-family="Arial" font-size="14">string</text>
+      
+      <!-- Status -->
+      <rect y="180" width="500" height="50" rx="4" fill="#fef3c7"/>
+      <text x="20" y="210" fill="#1e293b" font-family="Arial" font-size="14">status</text>
+      <text x="400" y="210" fill="#f59e0b" font-family="Arial" font-size="14">enum</text>
+    </g>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <!-- Target Schema -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Target Schema</text>
+    
+    <!-- Schema Fields -->
+    <g transform="translate(20, 60)">
+      <!-- ID -->
+      <rect width="500" height="50" rx="4" fill="#dbeafe"/>
+      <text x="20" y="30" fill="#1e293b" font-family="Arial" font-size="14">id</text>
+      <text x="400" y="30" fill="#3b82f6" font-family="Arial" font-size="14">uuid</text>
+      
+      <!-- Full Name -->
+      <rect y="60" width="500" height="50" rx="4" fill="#dcfce7"/>
+      <text x="20" y="90" fill="#1e293b" font-family="Arial" font-size="14">fullName</text>
+      <text x="400" y="90" fill="#10b981" font-family="Arial" font-size="14">string</text>
+      
+      <!-- Contact -->
+      <rect y="120" width="500" height="50" rx="4" fill="#f3e8ff"/>
+      <text x="20" y="150" fill="#1e293b" font-family="Arial" font-size="14">contactEmail</text>
+      <text x="400" y="150" fill="#6366f1" font-family="Arial" font-size="14">string</text>
+      
+      <!-- Account Status -->
+      <rect y="180" width="500" height="50" rx="4" fill="#fef3c7"/>
+      <text x="20" y="210" fill="#1e293b" font-family="Arial" font-size="14">accountStatus</text>
+      <text x="400" y="210" fill="#f59e0b" font-family="Arial" font-size="14">string</text>
+    </g>
+  </g>
+  
+  <g transform="translate(30, 430)">
+    <!-- Mapping Rules -->
+    <rect width="1140" height="340" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Mapping Rules</text>
+    
+    <!-- Rule Cards -->
+    <g transform="translate(20, 60)">
+      <!-- Field Mapping -->
+      <rect width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Field Mapping</text>
+      <text x="20" y="65" fill="#3b82f6" font-family="Arial" font-size="14">customer_id → id</text>
+      <text x="20" y="85" fill="#3b82f6" font-family="Arial" font-size="14">name → fullName</text>
+      <text x="20" y="105" fill="#3b82f6" font-family="Arial" font-size="14">email → contactEmail</text>
+      
+      <!-- Transformations -->
+      <rect x="380" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="400" y="35" fill="#1e293b" font-family="Arial" font-size="16">Transformations</text>
+      <text x="400" y="65" fill="#10b981" font-family="Arial" font-size="14">UUID Generation</text>
+      <text x="400" y="85" fill="#10b981" font-family="Arial" font-size="14">String Formatting</text>
+      <text x="400" y="105" fill="#10b981" font-family="Arial" font-size="14">Status Normalization</text>
+      
+      <!-- Validation Rules -->
+      <rect x="760" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="780" y="35" fill="#1e293b" font-family="Arial" font-size="16">Validation Rules</text>
+      <text x="780" y="65" fill="#6366f1" font-family="Arial" font-size="14">Required Fields</text>
+      <text x="780" y="85" fill="#6366f1" font-family="Arial" font-size="14">Format Validation</text>
+      <text x="780" y="105" fill="#6366f1" font-family="Arial" font-size="14">Data Type Checks</text>
+    </g>
+    
+    <!-- Additional Rules -->
+    <g transform="translate(20, 200)">
+      <text x="0" y="0" fill="#1e293b" font-family="Arial" font-size="16">Additional Rules</text>
+      
+      <rect y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="50" fill="#1e293b" font-family="Arial" font-size="14">Default Values</text>
+      <text x="20" y="75" fill="#3b82f6" font-family="Arial" font-size="14">Set fallback values</text>
+      
+      <rect x="380" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="400" y="50" fill="#1e293b" font-family="Arial" font-size="14">Data Enrichment</text>
+      <text x="400" y="75" fill="#10b981" font-family="Arial" font-size="14">Add computed fields</text>
+      
+      <rect x="760" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="780" y="50" fill="#1e293b" font-family="Arial" font-size="14">Error Handling</text>
+      <text x="780" y="75" fill="#6366f1" font-family="Arial" font-size="14">Define fallback logic</text>
+    </g>
+  </g>
+</svg>

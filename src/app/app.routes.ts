@@ -74,6 +74,42 @@ export const routes: Routes = [
     }
   },
 
+  // Client Portal Route
+  {
+    path: 'client-portal',
+    loadComponent: () =>
+      import('./Features/client-portal/client-portal.component').then((m) => m.ClientPortalComponent),
+    title: 'Client Portal - UnifyNetwork LLC',
+    data: {
+      description: 'Access our powerful client portal dashboard for managing and monitoring your services.',
+      keywords: 'client portal, dashboard, service management, analytics'
+    }
+  },
+
+  // AI Analytics Route
+  {
+    path: 'ai-analytics',
+    loadComponent: () =>
+      import('./Features/ai-analytics/ai-analytics.component').then((m) => m.AiAnalyticsComponent),
+    title: 'AI Analytics - UnifyNetwork LLC',
+    data: {
+      description: 'Leverage advanced AI algorithms to gain deeper insights into your service performance.',
+      keywords: 'AI analytics, machine learning, predictive analytics, business intelligence'
+    }
+  },
+
+  // Custom Integration Route
+  {
+    path: 'custom-integration',
+    loadComponent: () =>
+      import('./Features/custom-integration/custom-integration.component').then((m) => m.CustomIntegrationComponent),
+    title: 'Custom Integration - UnifyNetwork LLC',
+    data: {
+      description: 'Seamlessly integrate our services with your existing systems and workflows.',
+      keywords: 'system integration, API, workflow automation, data synchronization'
+    }
+  },
+
   // 404 Route (Lazy Loaded)
   {
     path: 'not-found',

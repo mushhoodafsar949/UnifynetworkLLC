@@ -1,6 +1,6 @@
 .quote-page {
   min-height: calc(100vh - 8rem);
-  padding: 2rem;
+  padding: 6rem 2rem 2rem;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
