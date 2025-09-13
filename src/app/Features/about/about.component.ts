@@ -61,6 +61,13 @@ export class AboutComponent implements OnInit {
   }
 
   private allTeamMembers: TeamMember[] = [
+    {
+      name: 'Mushhood Afsar',
+      designation: 'Chief Technology Officer',
+      imageUrl: 'assets/CO.jpeg',
+      linkedin: 'https://www.linkedin.com/in/mushhood-afsar',
+      email: 'mushhood@unifynetwork.com'
+    },
     { 
       name: 'Muhammad Fahad', 
       designation: 'Director HR', 

@@ -1,0 +1,13 @@
+[build]
+  publish = "dist/unifynetworkllc/browser"
+  command = "npx ng build --configuration production"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

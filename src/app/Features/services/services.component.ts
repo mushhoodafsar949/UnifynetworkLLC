@@ -27,6 +27,14 @@ interface ServiceSection {
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" *ngIf="isLoading">
+      <div class="loader">
+        <i class="pi pi-spin pi-spinner"></i>
+        <span>Loading services...</span>
+      </div>
+    </div>
+
     <div class="services-container">
       <!-- Hero Section -->
       <section class="hero-section" #heroSection>
@@ -116,6 +124,7 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   private scrollTriggers: ScrollTrigger[] = [];
   private isDestroyed$ = new BehaviorSubject<boolean>(false);
+  isLoading = true;
 
   services: ServiceSection[] = [
     {
@@ -317,6 +326,9 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    // Show loading state
+    this.isLoading = true;
+
     // Initialize AOS with optimized settings
     AOS.init({
       duration: 800,
@@ -325,6 +337,37 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
       delay: 100,
       throttleDelay: 99,
       mirror: false
+    });
+
+    // Hide loading when all images and videos are loaded
+    const images = document.querySelectorAll('img');
+    const videos = document.querySelectorAll('video');
+    let loadedAssets = 0;
+    const totalAssets = images.length + videos.length;
+
+    const checkAllAssetsLoaded = () => {
+      loadedAssets++;
+      if (loadedAssets === totalAssets) {
+        this.isLoading = false;
+      }
+    };
+
+    images.forEach(img => {
+      if (img.complete) {
+        checkAllAssetsLoaded();
+      } else {
+        img.addEventListener('load', checkAllAssetsLoaded);
+        img.addEventListener('error', checkAllAssetsLoaded);
+      }
+    });
+
+    videos.forEach(video => {
+      if (video.readyState >= 3) {
+        checkAllAssetsLoaded();
+      } else {
+        video.addEventListener('canplay', checkAllAssetsLoaded);
+        video.addEventListener('error', checkAllAssetsLoaded);
+      }
     });
 
     // Initialize Intersection Observer for lazy loading videos

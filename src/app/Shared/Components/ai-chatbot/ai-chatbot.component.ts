@@ -295,6 +295,11 @@ export class AiChatbotComponent implements OnInit {
 
   // Initial greeting message
   ngOnInit() {
+    // Auto-popup after 1 minute
+    setTimeout(() => {
+      this.isExpanded = true;
+    }, 60000);
+
     this.addBotMessage(
       'Hello! I\'m your AI assistant. How can I help you today?',
       'suggestion',
