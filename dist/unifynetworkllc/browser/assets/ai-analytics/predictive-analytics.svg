@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Predictive Analytics</text>
+  
+  <!-- Main Content -->
+  <g transform="translate(30, 90)">
+    <!-- Trend Prediction -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Call Volume Prediction</text>
+    
+    <!-- Line Chart -->
+    <g transform="translate(40, 60)">
+      <!-- Grid Lines -->
+      <line x1="0" y1="200" x2="480" y2="200" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="150" x2="480" y2="150" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="100" x2="480" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+      <line x1="0" y1="50" x2="480" y2="50" stroke="#e2e8f0" stroke-width="1"/>
+      
+      <!-- Historical Data -->
+      <path d="M 0 150 Q 120 50, 240 170 T 320 100" stroke="#3b82f6" fill="none" stroke-width="3"/>
+      
+      <!-- Prediction Zone -->
+      <rect x="320" y="0" width="160" height="200" fill="url(#prediction-gradient)" opacity="0.1"/>
+      <path d="M 320 100 Q 400 80, 480 60" stroke="#3b82f6" fill="none" stroke-width="3" stroke-dasharray="5,5"/>
+      <text x="400" y="20" fill="#6366f1" font-family="Arial" font-size="12">Predicted Trend</text>
+    </g>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <!-- Peak Time Analysis -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Peak Time Analysis</text>
+    
+    <!-- Heat Map -->
+    <g transform="translate(40, 60)">
+      <!-- Time Slots -->
+      <rect width="80" height="40" fill="#fee2e2"/>
+      <text x="40" y="25" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">9:00 AM</text>
+      
+      <rect x="100" width="80" height="40" fill="#fef3c7"/>
+      <text x="140" y="25" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">10:00 AM</text>
+      
+      <rect x="200" width="80" height="40" fill="#dcfce7"/>
+      <text x="240" y="25" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">11:00 AM</text>
+      
+      <rect x="300" width="80" height="40" fill="#dbeafe"/>
+      <text x="340" y="25" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">12:00 PM</text>
+      
+      <!-- Days -->
+      <text x="-30" y="80" fill="#1e293b" font-family="Arial" font-size="12">Mon</text>
+      <rect y="60" width="400" height="30" fill="#fee2e2"/>
+      
+      <text x="-30" y="120" fill="#1e293b" font-family="Arial" font-size="12">Tue</text>
+      <rect y="100" width="400" height="30" fill="#fef3c7"/>
+      
+      <text x="-30" y="160" fill="#1e293b" font-family="Arial" font-size="12">Wed</text>
+      <rect y="140" width="400" height="30" fill="#dcfce7"/>
+      
+      <text x="-30" y="200" fill="#1e293b" font-family="Arial" font-size="12">Thu</text>
+      <rect y="180" width="400" height="30" fill="#dbeafe"/>
+      
+      <text x="-30" y="240" fill="#1e293b" font-family="Arial" font-size="12">Fri</text>
+      <rect y="220" width="400" height="30" fill="#f3e8ff"/>
+    </g>
+  </g>
+  
+  <g transform="translate(30, 430)">
+    <!-- Predictive Insights -->
+    <rect width="1140" height="340" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Predictive Insights</text>
+    
+    <!-- Insight Cards -->
+    <g transform="translate(20, 60)">
+      <!-- Volume Prediction -->
+      <rect width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Expected Call Volume</text>
+      <text x="20" y="65" fill="#3b82f6" font-family="Arial" font-size="24">+15%</text>
+      <text x="20" y="95" fill="#64748b" font-family="Arial" font-size="14">Next Week's Forecast</text>
+      
+      <!-- Peak Times -->
+      <rect x="380" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="400" y="35" fill="#1e293b" font-family="Arial" font-size="16">Predicted Peak Times</text>
+      <text x="400" y="65" fill="#10b981" font-family="Arial" font-size="14">Tuesday 10:00 AM - 12:00 PM</text>
+      <text x="400" y="95" fill="#64748b" font-family="Arial" font-size="14">Thursday 2:00 PM - 4:00 PM</text>
+      
+      <!-- Resource Needs -->
+      <rect x="760" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="780" y="35" fill="#1e293b" font-family="Arial" font-size="16">Resource Requirements</text>
+      <text x="780" y="65" fill="#6366f1" font-family="Arial" font-size="14">+3 Agents Needed</text>
+      <text x="780" y="95" fill="#64748b" font-family="Arial" font-size="14">During Peak Hours</text>
+    </g>
+    
+    <!-- Recommendations -->
+    <g transform="translate(20, 200)">
+      <text x="0" y="0" fill="#1e293b" font-family="Arial" font-size="16">AI Recommendations</text>
+      
+      <rect y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="50" fill="#1e293b" font-family="Arial" font-size="14">Staffing Optimization</text>
+      <text x="20" y="75" fill="#3b82f6" font-family="Arial" font-size="14">Increase morning shift capacity</text>
+      
+      <rect x="380" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="400" y="50" fill="#1e293b" font-family="Arial" font-size="14">Training Focus</text>
+      <text x="400" y="75" fill="#10b981" font-family="Arial" font-size="14">Product knowledge enhancement</text>
+      
+      <rect x="760" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="780" y="50" fill="#1e293b" font-family="Arial" font-size="14">Process Improvement</text>
+      <text x="780" y="75" fill="#6366f1" font-family="Arial" font-size="14">Automate routine inquiries</text>
+    </g>
+  </g>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="prediction-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+</svg>

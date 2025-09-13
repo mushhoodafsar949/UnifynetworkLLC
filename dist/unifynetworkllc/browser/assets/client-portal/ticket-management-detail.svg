@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Ticket Management</text>
+  
+  <!-- Filters Bar -->
+  <rect x="0" y="60" width="1200" height="50" fill="#f8fafc"/>
+  <g transform="translate(30, 75)">
+    <rect width="120" height="30" rx="15" fill="#3b82f6"/>
+    <text x="20" y="20" fill="white" font-family="Arial" font-size="14">All Tickets</text>
+  </g>
+  <g transform="translate(170, 75)">
+    <rect width="120" height="30" rx="15" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="20" fill="#64748b" font-family="Arial" font-size="14">Open</text>
+  </g>
+  <g transform="translate(310, 75)">
+    <rect width="120" height="30" rx="15" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="20" fill="#64748b" font-family="Arial" font-size="14">In Progress</text>
+  </g>
+  
+  <!-- Ticket List -->
+  <g transform="translate(30, 140)">
+    <!-- Headers -->
+    <text x="0" y="20" fill="#64748b" font-family="Arial" font-size="14">Ticket ID</text>
+    <text x="150" y="20" fill="#64748b" font-family="Arial" font-size="14">Subject</text>
+    <text x="500" y="20" fill="#64748b" font-family="Arial" font-size="14">Status</text>
+    <text x="650" y="20" fill="#64748b" font-family="Arial" font-size="14">Priority</text>
+    <text x="800" y="20" fill="#64748b" font-family="Arial" font-size="14">Created</text>
+    <text x="950" y="20" fill="#64748b" font-family="Arial" font-size="14">Assigned To</text>
+    
+    <!-- Ticket Rows -->
+    <g transform="translate(0, 40)">
+      <rect width="1140" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="14">#1234</text>
+      <text x="150" y="35" fill="#1e293b" font-family="Arial" font-size="14">Customer login issue</text>
+      <rect x="500" y="20" width="80" height="24" rx="12" fill="#fef3c7"/>
+      <text x="515" y="35" fill="#d97706" font-family="Arial" font-size="12">Open</text>
+      <rect x="650" y="20" width="80" height="24" rx="12" fill="#fee2e2"/>
+      <text x="665" y="35" fill="#dc2626" font-family="Arial" font-size="12">High</text>
+      <text x="800" y="35" fill="#64748b" font-family="Arial" font-size="14">2h ago</text>
+      <circle cx="950" cy="30" r="15" fill="#3b82f6"/>
+      <text x="980" y="35" fill="#1e293b" font-family="Arial" font-size="14">John D.</text>
+    </g>
+    
+    <g transform="translate(0, 110)">
+      <rect width="1140" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="14">#1233</text>
+      <text x="150" y="35" fill="#1e293b" font-family="Arial" font-size="14">Payment processing error</text>
+      <rect x="500" y="20" width="100" height="24" rx="12" fill="#dbeafe"/>
+      <text x="515" y="35" fill="#2563eb" font-family="Arial" font-size="12">In Progress</text>
+      <rect x="650" y="20" width="80" height="24" rx="12" fill="#fef3c7"/>
+      <text x="665" y="35" fill="#d97706" font-family="Arial" font-size="12">Medium</text>
+      <text x="800" y="35" fill="#64748b" font-family="Arial" font-size="14">5h ago</text>
+      <circle cx="950" cy="30" r="15" fill="#10b981"/>
+      <text x="980" y="35" fill="#1e293b" font-family="Arial" font-size="14">Sarah M.</text>
+    </g>
+    
+    <g transform="translate(0, 180)">
+      <rect width="1140" height="60" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="14">#1232</text>
+      <text x="150" y="35" fill="#1e293b" font-family="Arial" font-size="14">Feature request: Dark mode</text>
+      <rect x="500" y="20" width="80" height="24" rx="12" fill="#dcfce7"/>
+      <text x="515" y="35" fill="#16a34a" font-family="Arial" font-size="12">New</text>
+      <rect x="650" y="20" width="80" height="24" rx="12" fill="#f3e8ff"/>
+      <text x="665" y="35" fill="#9333ea" font-family="Arial" font-size="12">Low</text>
+      <text x="800" y="35" fill="#64748b" font-family="Arial" font-size="14">1d ago</text>
+      <circle cx="950" cy="30" r="15" fill="#6366f1"/>
+      <text x="980" y="35" fill="#1e293b" font-family="Arial" font-size="14">Mike R.</text>
+    </g>
+  </g>
+  
+  <!-- Ticket Details Panel -->
+  <g transform="translate(30, 400)">
+    <rect width="1140" height="370" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Ticket Details</text>
+    
+    <!-- Ticket Info -->
+    <g transform="translate(20, 60)">
+      <text x="0" y="0" fill="#64748b" font-family="Arial" font-size="14">Customer</text>
+      <text x="0" y="25" fill="#1e293b" font-family="Arial" font-size="16">John Smith</text>
+      
+      <text x="200" y="0" fill="#64748b" font-family="Arial" font-size="14">Email</text>
+      <text x="200" y="25" fill="#1e293b" font-family="Arial" font-size="16">john.smith@example.com</text>
+      
+      <text x="500" y="0" fill="#64748b" font-family="Arial" font-size="14">Phone</text>
+      <text x="500" y="25" fill="#1e293b" font-family="Arial" font-size="16">+1 (555) 123-4567</text>
+    </g>
+    
+    <!-- Ticket Description -->
+    <g transform="translate(20, 120)">
+      <text x="0" y="0" fill="#64748b" font-family="Arial" font-size="14">Description</text>
+      <rect x="0" y="20" width="1100" height="100" rx="8" fill="#f8fafc"/>
+      <text x="20" y="45" fill="#1e293b" font-family="Arial" font-size="14">Unable to log in to the dashboard. Getting "Invalid credentials" error even though the password was reset recently.</text>
+    </g>
+    
+    <!-- Activity Timeline -->
+    <g transform="translate(20, 250)">
+      <text x="0" y="0" fill="#64748b" font-family="Arial" font-size="14">Activity</text>
+      
+      <g transform="translate(0, 30)">
+        <circle cx="10" cy="10" r="6" fill="#3b82f6"/>
+        <text x="30" y="15" fill="#1e293b" font-family="Arial" font-size="14">Ticket created by System</text>
+        <text x="900" y="15" fill="#64748b" font-family="Arial" font-size="14">2h ago</text>
+      </g>
+      
+      <g transform="translate(0, 60)">
+        <circle cx="10" cy="10" r="6" fill="#10b981"/>
+        <text x="30" y="15" fill="#1e293b" font-family="Arial" font-size="14">Assigned to John D.</text>
+        <text x="900" y="15" fill="#64748b" font-family="Arial" font-size="14">1h ago</text>
+      </g>
+      
+      <g transform="translate(0, 90)">
+        <circle cx="10" cy="10" r="6" fill="#6366f1"/>
+        <text x="30" y="15" fill="#1e293b" font-family="Arial" font-size="14">Status updated to "In Progress"</text>
+        <text x="900" y="15" fill="#64748b" font-family="Arial" font-size="14">30m ago</text>
+      </g>
+    </g>
+  </g>
+</svg>

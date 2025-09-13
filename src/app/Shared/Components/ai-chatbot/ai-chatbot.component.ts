@@ -91,6 +91,11 @@ interface ChatMessage {
     </div>
   `,
   styles: [`
+    :host {
+      position: relative;
+      z-index: 9999;
+    }
+
     .chatbot-container {
       width: 360px;
       background: var(--surface-primary);
@@ -98,11 +103,8 @@ interface ChatMessage {
       box-shadow: var(--shadow-lg);
       display: flex;
       flex-direction: column;
-      transform-origin: bottom right;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       max-height: 600px;
-      transform-origin: bottom right;
-      animation: float 6s ease-in-out infinite;
     }
 
     @keyframes float {

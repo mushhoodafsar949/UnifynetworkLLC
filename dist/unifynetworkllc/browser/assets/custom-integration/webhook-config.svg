@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Webhook Configuration</text>
+  
+  <!-- Main Content -->
+  <g transform="translate(30, 90)">
+    <!-- Webhook Endpoints -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Webhook Endpoints</text>
+    
+    <!-- Endpoint List -->
+    <g transform="translate(20, 60)">
+      <!-- Ticket Created -->
+      <rect width="500" height="60" rx="4" fill="#dbeafe"/>
+      <text x="20" y="25" fill="#1e293b" font-family="Arial" font-size="14" font-weight="bold">Ticket Created</text>
+      <text x="20" y="45" fill="#3b82f6" font-family="Arial" font-size="12">https://api.example.com/webhooks/tickets</text>
+      <rect x="420" y="15" width="60" height="24" rx="12" fill="#10b981"/>
+      <text x="450" y="31" fill="white" font-family="Arial" font-size="12" text-anchor="middle">Active</text>
+      
+      <!-- Status Updated -->
+      <rect y="70" width="500" height="60" rx="4" fill="#dcfce7"/>
+      <text x="20" y="95" fill="#1e293b" font-family="Arial" font-size="14" font-weight="bold">Status Updated</text>
+      <text x="20" y="115" fill="#10b981" font-family="Arial" font-size="12">https://api.example.com/webhooks/status</text>
+      <rect x="420" y="85" width="60" height="24" rx="12" fill="#10b981"/>
+      <text x="450" y="101" fill="white" font-family="Arial" font-size="12" text-anchor="middle">Active</text>
+      
+      <!-- Customer Created -->
+      <rect y="140" width="500" height="60" rx="4" fill="#f3e8ff"/>
+      <text x="20" y="165" fill="#1e293b" font-family="Arial" font-size="14" font-weight="bold">Customer Created</text>
+      <text x="20" y="185" fill="#6366f1" font-family="Arial" font-size="12">https://api.example.com/webhooks/customers</text>
+      <rect x="420" y="155" width="60" height="24" rx="12" fill="#10b981"/>
+      <text x="450" y="171" fill="white" font-family="Arial" font-size="12" text-anchor="middle">Active</text>
+      
+      <!-- Report Generated -->
+      <rect y="210" width="500" height="60" rx="4" fill="#fef3c7"/>
+      <text x="20" y="235" fill="#1e293b" font-family="Arial" font-size="14" font-weight="bold">Report Generated</text>
+      <text x="20" y="255" fill="#f59e0b" font-family="Arial" font-size="12">https://api.example.com/webhooks/reports</text>
+      <rect x="420" y="225" width="60" height="24" rx="12" fill="#64748b"/>
+      <text x="450" y="241" fill="white" font-family="Arial" font-size="12" text-anchor="middle">Paused</text>
+    </g>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <!-- Event Types -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Event Types</text>
+    
+    <!-- Event List -->
+    <g transform="translate(20, 60)">
+      <!-- Ticket Events -->
+      <rect width="500" height="100" rx="8" fill="#f8fafc"/>
+      <text x="20" y="30" fill="#1e293b" font-family="Arial" font-size="14" font-weight="bold">Ticket Events</text>
+      <text x="20" y="55" fill="#3b82f6" font-family="Arial" font-size="12">• ticket.created</text>
+      <text x="20" y="75" fill="#3b82f6" font-family="Arial" font-size="12">• ticket.updated</text>
+      <text x="20" y="95" fill="#3b82f6" font-family="Arial" font-size="12">• ticket.closed</text>
+      
+      <!-- Customer Events -->
+      <rect y="110" width="500" height="100" rx="8" fill="#f8fafc"/>
+      <text x="20" y="140" fill="#1e293b" font-family="Arial" font-size="14" font-weight="bold">Customer Events</text>
+      <text x="20" y="165" fill="#10b981" font-family="Arial" font-size="12">• customer.created</text>
+      <text x="20" y="185" fill="#10b981" font-family="Arial" font-size="12">• customer.updated</text>
+      <text x="20" y="205" fill="#10b981" font-family="Arial" font-size="12">• customer.deleted</text>
+    </g>
+  </g>
+  
+  <g transform="translate(30, 430)">
+    <!-- Webhook Settings -->
+    <rect width="1140" height="340" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Webhook Settings</text>
+    
+    <!-- Setting Cards -->
+    <g transform="translate(20, 60)">
+      <!-- Security -->
+      <rect width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Security</text>
+      <text x="20" y="65" fill="#3b82f6" font-family="Arial" font-size="14">• HMAC Authentication</text>
+      <text x="20" y="85" fill="#3b82f6" font-family="Arial" font-size="14">• SSL/TLS Required</text>
+      <text x="20" y="105" fill="#3b82f6" font-family="Arial" font-size="14">• IP Whitelisting</text>
+      
+      <!-- Retry Policy -->
+      <rect x="380" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="400" y="35" fill="#1e293b" font-family="Arial" font-size="16">Retry Policy</text>
+      <text x="400" y="65" fill="#10b981" font-family="Arial" font-size="14">• Max Retries: 5</text>
+      <text x="400" y="85" fill="#10b981" font-family="Arial" font-size="14">• Backoff: Exponential</text>
+      <text x="400" y="105" fill="#10b981" font-family="Arial" font-size="14">• Timeout: 30s</text>
+      
+      <!-- Payload Format -->
+      <rect x="760" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="780" y="35" fill="#1e293b" font-family="Arial" font-size="16">Payload Format</text>
+      <text x="780" y="65" fill="#6366f1" font-family="Arial" font-size="14">• JSON</text>
+      <text x="780" y="85" fill="#6366f1" font-family="Arial" font-size="14">• Compression: gzip</text>
+      <text x="780" y="105" fill="#6366f1" font-family="Arial" font-size="14">• UTF-8 Encoding</text>
+    </g>
+    
+    <!-- Additional Settings -->
+    <g transform="translate(20, 200)">
+      <text x="0" y="0" fill="#1e293b" font-family="Arial" font-size="16">Additional Settings</text>
+      
+      <rect y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="50" fill="#1e293b" font-family="Arial" font-size="14">Event Filtering</text>
+      <text x="20" y="75" fill="#3b82f6" font-family="Arial" font-size="14">Configure event triggers</text>
+      
+      <rect x="380" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="400" y="50" fill="#1e293b" font-family="Arial" font-size="14">Rate Limiting</text>
+      <text x="400" y="75" fill="#10b981" font-family="Arial" font-size="14">100 events/minute</text>
+      
+      <rect x="760" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="780" y="50" fill="#1e293b" font-family="Arial" font-size="14">Monitoring</text>
+      <text x="780" y="75" fill="#6366f1" font-family="Arial" font-size="14">Real-time webhook logs</text>
+    </g>
+  </g>
+</svg>

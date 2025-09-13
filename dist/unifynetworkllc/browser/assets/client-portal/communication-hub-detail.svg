@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Communication Hub</text>
+  
+  <!-- Quick Stats -->
+  <g transform="translate(30, 90)">
+    <rect width="270" height="150" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Active Chats</text>
+    <text x="20" y="80" fill="#3b82f6" font-family="Arial" font-size="36" font-weight="bold">12</text>
+    <text x="20" y="120" fill="#10b981" font-family="Arial" font-size="14">↑ 3 from last hour</text>
+  </g>
+  
+  <g transform="translate(320, 90)">
+    <rect width="270" height="150" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Avg. Response Time</text>
+    <text x="20" y="80" fill="#10b981" font-family="Arial" font-size="36" font-weight="bold">45s</text>
+    <text x="20" y="120" fill="#10b981" font-family="Arial" font-size="14">↓ 10s improvement</text>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <rect width="270" height="150" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Messages Today</text>
+    <text x="20" y="80" fill="#6366f1" font-family="Arial" font-size="36" font-weight="bold">234</text>
+    <text x="20" y="120" fill="#10b981" font-family="Arial" font-size="14">85% response rate</text>
+  </g>
+  
+  <g transform="translate(900, 90)">
+    <rect width="270" height="150" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Team Members</text>
+    <text x="20" y="80" fill="#f59e0b" font-family="Arial" font-size="36" font-weight="bold">8/10</text>
+    <text x="20" y="120" fill="#64748b" font-family="Arial" font-size="14">Online now</text>
+  </g>
+  
+  <!-- Main Content Area -->
+  <g transform="translate(30, 270)">
+    <!-- Chat List -->
+    <rect width="300" height="500" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Active Conversations</text>
+    
+    <!-- Chat Items -->
+    <g transform="translate(20, 60)">
+      <rect width="260" height="70" rx="8" fill="#dbeafe"/>
+      <circle cx="25" cy="35" r="20" fill="#3b82f6"/>
+      <text x="60" y="30" fill="#1e293b" font-family="Arial" font-size="14">John Smith</text>
+      <text x="60" y="50" fill="#64748b" font-family="Arial" font-size="12">Technical support inquiry...</text>
+    </g>
+    
+    <g transform="translate(20, 140)">
+      <rect width="260" height="70" rx="8" fill="#ffffff"/>
+      <circle cx="25" cy="35" r="20" fill="#10b981"/>
+      <text x="60" y="30" fill="#1e293b" font-family="Arial" font-size="14">Sarah Johnson</text>
+      <text x="60" y="50" fill="#64748b" font-family="Arial" font-size="12">Billing question...</text>
+    </g>
+    
+    <g transform="translate(20, 220)">
+      <rect width="260" height="70" rx="8" fill="#ffffff"/>
+      <circle cx="25" cy="35" r="20" fill="#6366f1"/>
+      <text x="60" y="30" fill="#1e293b" font-family="Arial" font-size="14">Mike Brown</text>
+      <text x="60" y="50" fill="#64748b" font-family="Arial" font-size="12">Product inquiry...</text>
+    </g>
+  </g>
+  
+  <!-- Chat Window -->
+  <g transform="translate(360, 270)">
+    <rect width="810" height="500" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    
+    <!-- Chat Header -->
+    <rect x="0" y="0" width="810" height="60" rx="8" fill="#f8fafc"/>
+    <circle cx="40" cy="30" r="20" fill="#3b82f6"/>
+    <text x="80" y="35" fill="#1e293b" font-family="Arial" font-size="16">John Smith</text>
+    <text x="80" y="50" fill="#64748b" font-family="Arial" font-size="12">Online • Last seen just now</text>
+    
+    <!-- Chat Messages -->
+    <g transform="translate(20, 80)">
+      <!-- Customer Message -->
+      <rect width="400" height="60" rx="8" fill="#f8fafc"/>
+      <text x="20" y="25" fill="#1e293b" font-family="Arial" font-size="14">Hi, I'm having trouble accessing my account. Can you help?</text>
+      <text x="20" y="45" fill="#64748b" font-family="Arial" font-size="12">10:30 AM</text>
+      
+      <!-- Agent Message -->
+      <g transform="translate(370, 80)">
+        <rect width="400" height="60" rx="8" fill="#dbeafe"/>
+        <text x="20" y="25" fill="#1e293b" font-family="Arial" font-size="14">Of course! I'd be happy to help. Could you please provide your account email?</text>
+        <text x="20" y="45" fill="#64748b" font-family="Arial" font-size="12">10:31 AM</text>
+      </g>
+      
+      <!-- Customer Message -->
+      <rect y="160" width="400" height="60" rx="8" fill="#f8fafc"/>
+      <text x="20" y="185" fill="#1e293b" font-family="Arial" font-size="14">It's john.smith@example.com</text>
+      <text x="20" y="205" fill="#64748b" font-family="Arial" font-size="12">10:32 AM</text>
+    </g>
+    
+    <!-- Chat Input -->
+    <g transform="translate(20, 440)">
+      <rect width="770" height="40" rx="20" fill="#f8fafc"/>
+      <text x="20" y="25" fill="#64748b" font-family="Arial" font-size="14">Type your message...</text>
+      <circle cx="740" cy="20" r="15" fill="#3b82f6"/>
+      <text x="735" y="25" fill="white" font-family="Arial" font-size="14">→</text>
+    </g>
+  </g>
+</svg>

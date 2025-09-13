@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#1e293b"/>
+  <text x="30" y="38" fill="white" font-family="Arial" font-size="24">Intent Recognition</text>
+  
+  <!-- Main Content -->
+  <g transform="translate(30, 90)">
+    <!-- Intent Distribution -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Intent Distribution</text>
+    
+    <!-- Bar Chart -->
+    <g transform="translate(40, 60)">
+      <rect width="80" height="200" rx="4" fill="#3b82f6"/>
+      <text x="40" y="230" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Support</text>
+      <text x="40" y="250" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">40%</text>
+      
+      <rect x="100" width="80" height="150" rx="4" fill="#10b981"/>
+      <text x="140" y="230" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Inquiry</text>
+      <text x="140" y="250" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">30%</text>
+      
+      <rect x="200" width="80" height="100" rx="4" fill="#6366f1"/>
+      <text x="240" y="230" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Feedback</text>
+      <text x="240" y="250" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">20%</text>
+      
+      <rect x="300" width="80" height="50" rx="4" fill="#f59e0b"/>
+      <text x="340" y="230" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Sales</text>
+      <text x="340" y="250" fill="#1e293b" font-family="Arial" font-size="12" text-anchor="middle">10%</text>
+    </g>
+  </g>
+  
+  <g transform="translate(610, 90)">
+    <!-- Intent Accuracy -->
+    <rect width="560" height="320" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Intent Recognition Accuracy</text>
+    
+    <!-- Accuracy Meters -->
+    <g transform="translate(40, 80)">
+      <text x="0" y="0" fill="#1e293b" font-family="Arial" font-size="14">Support Intent</text>
+      <rect x="0" y="20" width="400" height="20" rx="10" fill="#f1f5f9"/>
+      <rect x="0" y="20" width="380" height="20" rx="10" fill="#3b82f6"/>
+      <text x="420" y="35" fill="#1e293b" font-family="Arial" font-size="14">95%</text>
+      
+      <text x="0" y="80" fill="#1e293b" font-family="Arial" font-size="14">Inquiry Intent</text>
+      <rect x="0" y="100" width="400" height="20" rx="10" fill="#f1f5f9"/>
+      <rect x="0" y="100" width="360" height="20" rx="10" fill="#10b981"/>
+      <text x="420" y="115" fill="#1e293b" font-family="Arial" font-size="14">90%</text>
+      
+      <text x="0" y="160" fill="#1e293b" font-family="Arial" font-size="14">Feedback Intent</text>
+      <rect x="0" y="180" width="400" height="20" rx="10" fill="#f1f5f9"/>
+      <rect x="0" y="180" width="340" height="20" rx="10" fill="#6366f1"/>
+      <text x="420" y="195" fill="#1e293b" font-family="Arial" font-size="14">85%</text>
+    </g>
+  </g>
+  
+  <g transform="translate(30, 430)">
+    <!-- Intent Analysis -->
+    <rect width="1140" height="340" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="18" font-weight="bold">Intent Analysis</text>
+    
+    <!-- Analysis Cards -->
+    <g transform="translate(20, 60)">
+      <!-- Common Patterns -->
+      <rect width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="20" y="35" fill="#1e293b" font-family="Arial" font-size="16">Common Patterns</text>
+      <text x="20" y="65" fill="#3b82f6" font-family="Arial" font-size="14">"How do I..."</text>
+      <text x="20" y="85" fill="#3b82f6" font-family="Arial" font-size="14">"I need help with..."</text>
+      <text x="20" y="105" fill="#3b82f6" font-family="Arial" font-size="14">"Can you assist..."</text>
+      
+      <!-- Intent Transitions -->
+      <rect x="380" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="400" y="35" fill="#1e293b" font-family="Arial" font-size="16">Intent Transitions</text>
+      <text x="400" y="65" fill="#10b981" font-family="Arial" font-size="14">Support → Feedback</text>
+      <text x="400" y="85" fill="#10b981" font-family="Arial" font-size="14">Inquiry → Sales</text>
+      <text x="400" y="105" fill="#10b981" font-family="Arial" font-size="14">Support → Inquiry</text>
+      
+      <!-- Intent Confidence -->
+      <rect x="760" width="340" height="120" rx="8" fill="#f8fafc"/>
+      <text x="780" y="35" fill="#1e293b" font-family="Arial" font-size="16">Average Confidence</text>
+      <text x="780" y="65" fill="#6366f1" font-family="Arial" font-size="24">92%</text>
+      <text x="780" y="95" fill="#64748b" font-family="Arial" font-size="14">↑ 3% from last month</text>
+    </g>
+    
+    <!-- Intent Examples -->
+    <g transform="translate(20, 200)">
+      <text x="0" y="0" fill="#1e293b" font-family="Arial" font-size="16">Example Intents</text>
+      
+      <rect y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="20" y="50" fill="#1e293b" font-family="Arial" font-size="14">Support Intent</text>
+      <text x="20" y="75" fill="#3b82f6" font-family="Arial" font-size="14">"I can't access my account"</text>
+      
+      <rect x="380" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="400" y="50" fill="#1e293b" font-family="Arial" font-size="14">Inquiry Intent</text>
+      <text x="400" y="75" fill="#10b981" font-family="Arial" font-size="14">"What are your pricing plans?"</text>
+      
+      <rect x="760" y="20" width="340" height="80" rx="8" fill="#f8fafc"/>
+      <text x="780" y="50" fill="#1e293b" font-family="Arial" font-size="14">Feedback Intent</text>
+      <text x="780" y="75" fill="#6366f1" font-family="Arial" font-size="14">"Great service today!"</text>
+    </g>
+  </g>
+</svg>
