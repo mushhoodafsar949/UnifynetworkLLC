@@ -1,168 +1,355 @@
 <div class="quote-page">
   <div class="quote-container">
     <h1>Get a Free Quote</h1>
-    <p class="subtitle">Let us help you find the perfect solution for your business</p>
-    
-    <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()" class="quote-form">
-      <!-- Success Message -->
-      <div *ngIf="success" class="success-message">
-        <i class="pi pi-check-circle"></i>
-        <p>Thank you for your interest! We'll contact you shortly.</p>
+    <p class="subtitle">Explore our service tiers and get a customized solution</p>
+
+    <div class="quote-calculator">
+      <!-- Service Selection -->
+      <div class="calculator-section">
+        <h2>1. Select Your Service</h2>
+        <p-dropdown 
+          [options]="services" 
+          [(ngModel)]="selectedService"
+          (onChange)="onServiceChange()"
+          placeholder="Choose a service"
+          [style]="{'width': '100%'}"
+          optionLabel="label"
+          optionValue="value">
+        </p-dropdown>
+
+        <!-- Service Details -->
+        <div *ngIf="selectedServiceDetails" class="service-info">
+          <p-card class="service-details mt-4">
+            <h3>{{selectedServiceDetails.label}}</h3>
+            <p class="long-description">{{selectedServiceDetails.longDescription}}</p>
+            
+            <div class="service-highlights">
+              <div class="highlight-section">
+                <h4><i class="pi pi-cog"></i> Technologies</h4>
+                <div class="tags">
+                  <span class="tag" *ngFor="let tech of selectedServiceDetails.technologies">{{tech}}</span>
+                </div>
+              </div>
+              
+              <div class="highlight-section">
+                <h4><i class="pi pi-building"></i> Industries</h4>
+                <div class="tags">
+                  <span class="tag" *ngFor="let industry of selectedServiceDetails.industries">{{industry}}</span>
+                </div>
       </div>
 
-      <!-- Error Message -->
-      <div *ngIf="error" class="error-message">
-        <i class="pi pi-exclamation-circle"></i>
-        <p>{{error}}</p>
+              <div class="highlight-section">
+                <h4><i class="pi pi-check-circle"></i> Certifications</h4>
+                <div class="tags">
+                  <span class="tag certification" *ngFor="let cert of selectedServiceDetails.certifications">{{cert}}</span>
+                </div>
+              </div>
+            </div>
+          </p-card>
+        </div>
       </div>
 
-      <!-- Form Fields -->
-      <div class="form-grid" *ngIf="!success">
-        <!-- Name -->
-        <div class="form-field">
-          <label for="name">Full Name *</label>
-          <input 
-            id="name"
-            type="text"
-            pInputText
-            formControlName="name"
-            [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('name')?.errors}"
-            placeholder="Enter your full name">
-          <small class="error-text" *ngIf="submitted && quoteForm.get('name')?.errors?.['required']">
-            Name is required
-          </small>
+      <!-- Service Tiers -->
+      <div class="calculator-section" *ngIf="selectedServiceDetails">
+        <h2>2. Choose Your Service Tier</h2>
+        <div class="tiers-grid">
+          <div class="tier-card" *ngFor="let tier of selectedServiceDetails.tiers" 
+               [class.selected]="selectedTier === tier.name"
+               [class.recommended]="tier === getRecommendedTier()"
+               (click)="onTierChange(tier.name)">
+            <div class="tier-header">
+              <i [class]="tier.icon"></i>
+              <h3>{{tier.name}}</h3>
+              <p class="tier-description">{{tier.description}}</p>
+              <div class="recommended-badge" *ngIf="tier === getRecommendedTier()">
+                <i class="pi pi-star-fill"></i> Recommended
+              </div>
         </div>
 
-        <!-- Phone -->
-        <div class="form-field">
-          <label for="phone">Phone Number *</label>
-          <input 
-            id="phone"
-            type="tel"
-            pInputText
-            formControlName="phone"
-            [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('phone')?.errors}"
-            placeholder="e.g., +923001234567">
-          <small class="error-text" *ngIf="submitted && quoteForm.get('phone')?.errors?.['required']">
-            Phone number is required
-          </small>
-          <small class="error-text" *ngIf="submitted && quoteForm.get('phone')?.errors?.['invalidPhone']">
-            Please enter a valid Pakistani phone number
-          </small>
+            <div class="pricing-section">
+              <div class="price-details">
+                <div class="price-row">
+                  <span class="price-label">Monthly</span>
+                  <span class="price-value">{{formatPrice(calculateMonthlyPrice(tier))}}</span>
+                  <span class="price-period">/month</span>
+                </div>
+                <div class="price-row annual">
+                  <span class="price-label">Annual</span>
+                  <span class="price-value">{{formatPrice(calculateAnnualPrice(tier))}}</span>
+                  <span class="price-period">/year</span>
+                  <span class="savings">Save {{formatPrice(getSavings(tier))}}</span>
+                </div>
+              </div>
+              <div class="price-includes">
+                <p><i class="pi pi-check"></i> {{agentCount}} agents</p>
+                <p><i class="pi pi-check"></i> {{shiftHours}} hours/day</p>
+                <p><i class="pi pi-check"></i> 24/7 availability</p>
+              </div>
         </div>
 
-        <!-- Email -->
-        <div class="form-field">
-          <label for="email">Email Address *</label>
-          <input 
-            id="email"
-            type="email"
-            pInputText
-            formControlName="email"
-            [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('email')?.errors}"
-            placeholder="Enter your email">
-          <small class="error-text" *ngIf="submitted && quoteForm.get('email')?.errors?.['required']">
-            Email is required
-          </small>
-          <small class="error-text" *ngIf="submitted && quoteForm.get('email')?.errors?.['email']">
-            Please enter a valid email address
-          </small>
+            <div class="recommended-for">
+              <h4>Perfect For:</h4>
+              <ul>
+                <li *ngFor="let rec of tier.recommendedFor">
+                  <i class="pi pi-check-circle"></i> {{rec}}
+                </li>
+              </ul>
         </div>
 
-        <!-- Company -->
-        <div class="form-field">
-          <label for="company">Company Name</label>
-          <input 
-            id="company"
-            type="text"
-            pInputText
-            formControlName="company"
-            placeholder="Your company name (optional)">
+            <div class="features-list">
+              <h4>Features Included:</h4>
+              <div class="feature-item" *ngFor="let feature of getTierFeatures(tier)"
+                   [class.included]="feature.included"
+                   [pTooltip]="feature.description"
+                   tooltipPosition="right">
+                <i class="pi" [class.pi-check-circle]="feature.included" 
+                   [class.pi-times-circle]="!feature.included"></i>
+                <div class="feature-details">
+                  <h4>{{feature.name}}</h4>
+                </div>
+              </div>
         </div>
 
-        <!-- Service Type -->
-        <div class="form-field">
-          <label for="serviceType">Service Type *</label>
-          <p-dropdown
-            id="serviceType"
-            formControlName="serviceType"
-            [options]="serviceTypes"
-            placeholder="Select a service"
-            [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('serviceType')?.errors}"
-            styleClass="w-full">
-          </p-dropdown>
-          <small class="error-text" *ngIf="submitted && quoteForm.get('serviceType')?.errors?.['required']">
-            Please select a service type
-          </small>
+            <button class="select-tier-btn" 
+                    [class.selected]="selectedTier === tier.name"
+                    (click)="onTierChange(tier.name)">
+              <i class="pi" [class.pi-check]="selectedTier === tier.name" 
+                          [class.pi-arrow-right]="selectedTier !== tier.name"></i>
+              {{selectedTier === tier.name ? 'Selected' : 'Select Plan'}}
+            </button>
+          </div>
         </div>
+        </div>
+
+      <!-- Requirements Configuration -->
+      <div class="calculator-section" *ngIf="selectedServiceDetails && selectedTier">
+        <h2>3. Configure Your Requirements</h2>
 
         <!-- Agent Count -->
-        <div class="form-field">
-          <label for="agentCount">Number of Agents Needed</label>
-          <input 
-            id="agentCount"
-            type="number"
-            pInputText
-            formControlName="agentCount"
-            placeholder="Approximate number of agents">
+        <div class="requirement-item">
+          <label>Number of Agents</label>
+          <div class="slider-container">
+            <p-inputNumber 
+              [(ngModel)]="agentCount" 
+              [min]="selectedServiceDetails.minAgents"
+              [max]="selectedServiceDetails.maxAgents"
+              [showButtons]="true">
+            </p-inputNumber>
+            <p-slider 
+              [(ngModel)]="agentCount"
+              [min]="selectedServiceDetails.minAgents"
+              [max]="selectedServiceDetails.maxAgents"
+              class="w-full">
+            </p-slider>
+          </div>
+          <small>Recommended: {{selectedServiceDetails.minAgents}}-{{selectedServiceDetails.maxAgents}} agents</small>
         </div>
 
-        <!-- Message -->
-        <div class="form-field full-width">
-          <label for="message">Message *</label>
-          <textarea 
-            id="message"
-            pTextarea
-            formControlName="message"
-            [rows]="3"
-            [ngClass]="{'ng-invalid ng-dirty': submitted && quoteForm.get('message')?.errors}"
-            placeholder="Please describe your requirements"></textarea>
-          <small class="error-text" *ngIf="submitted && quoteForm.get('message')?.errors?.['required']">
-            Please provide some details about your requirements
-          </small>
-        </div>
-
-        <!-- Preferred Contact Method -->
-        <div class="form-field">
-          <label>Preferred Contact Method *</label>
-          <div class="contact-method">
-            <p-radioButton
-              name="preferredContact"
-              value="phone"
-              formControlName="preferredContact"
-              label="Phone">
-            </p-radioButton>
-            <p-radioButton
-              name="preferredContact"
-              value="email"
-              formControlName="preferredContact"
-              label="Email">
-            </p-radioButton>
+        <!-- Shift Hours -->
+        <div class="requirement-item">
+          <label>Daily Shift Hours</label>
+          <div class="slider-container">
+            <p-inputNumber 
+              [(ngModel)]="shiftHours" 
+              [min]="4"
+              [max]="24"
+              [showButtons]="true">
+            </p-inputNumber>
+            <p-slider 
+              [(ngModel)]="shiftHours"
+              [min]="4"
+              [max]="24"
+              class="w-full">
+            </p-slider>
           </div>
         </div>
 
-        <!-- Best Time to Call -->
-        <div class="form-field" *ngIf="quoteForm.get('preferredContact')?.value === 'phone'">
-          <label for="bestTimeToCall">Best Time to Call</label>
-          <input 
-            id="bestTimeToCall"
-            type="text"
-            pInputText
-            formControlName="bestTimeToCall"
-            placeholder="e.g., Weekdays 2-5 PM">
+        <!-- Additional Options -->
+        <div class="requirement-item options-grid">
+          <div class="option-card" [class.selected]="multilingualSupport" (click)="multilingualSupport = !multilingualSupport">
+            <i class="pi pi-globe"></i>
+            <h4>Multilingual Support</h4>
+            <p>Support in multiple languages</p>
+          </div>
+
+          <div class="option-card" [class.selected]="dedicatedTeam" (click)="dedicatedTeam = !dedicatedTeam">
+            <i class="pi pi-users"></i>
+            <h4>Dedicated Team</h4>
+            <p>Exclusive agents for your business</p>
+          </div>
+
+          <div class="option-card" [class.selected]="customizedTraining" (click)="customizedTraining = !customizedTraining">
+            <i class="pi pi-book"></i>
+            <h4>Customized Training</h4>
+            <p>Specialized agent training</p>
+          </div>
         </div>
       </div>
 
-      <!-- Form Actions -->
-      <div class="form-actions" *ngIf="!success">
-        <button 
-          pButton
-          type="submit" 
-          label="Submit Quote Request" 
-          class="p-button-primary"
-          [loading]="loading">
-        </button>
+      <!-- Quote Summary Section -->
+      <div class="calculator-section summary-section" *ngIf="selectedServiceDetails && selectedTier">
+        <h2>4. Quote Summary</h2>
+        <div class="summary-card">
+          <div class="summary-header">
+            <h3>Your Custom Solution</h3>
+            <p>Here's a summary of your selected service package</p>
+          </div>
+
+          <div class="summary-content">
+            <div class="summary-group">
+              <h4>Service Details</h4>
+              <div class="detail-row">
+                <span class="label">Service:</span>
+                <span class="value">{{selectedServiceDetails.label}}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Tier:</span>
+                <span class="value">{{selectedTier}}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Team Size:</span>
+                <span class="value">{{agentCount}} agents</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Coverage:</span>
+                <span class="value">{{shiftHours}} hours/day</span>
+              </div>
+            </div>
+
+            <div class="summary-group" *ngIf="multilingualSupport || dedicatedTeam || customizedTraining">
+              <h4>Additional Services</h4>
+              <ul class="features-list">
+                <li *ngIf="multilingualSupport">
+                  <i class="pi pi-check-circle"></i>
+                  Multilingual Support
+                </li>
+                <li *ngIf="dedicatedTeam">
+                  <i class="pi pi-check-circle"></i>
+                  Dedicated Team
+                </li>
+                <li *ngIf="customizedTraining">
+                  <i class="pi pi-check-circle"></i>
+                  Customized Training
+                </li>
+              </ul>
+            </div>
+
+            <div class="summary-group">
+              <h4>Investment Overview</h4>
+              <div class="pricing-overview">
+                <div class="price-card monthly">
+                  <span class="period">Monthly</span>
+                  <span class="amount">{{getCurrentMonthlyPrice()}}</span>
+                </div>
+                <div class="price-card annual">
+                  <span class="period">Annual</span>
+                  <span class="amount">{{getCurrentAnnualPrice()}}</span>
+                  <span class="savings">Save {{formatPrice(getSavings(getSelectedTier()!))}}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROI Analysis -->
+            <div class="summary-group roi-analysis">
+              <h4>ROI Analysis</h4>
+              <div class="roi-metrics">
+                <div class="metric-card">
+                  <i class="pi pi-dollar"></i>
+                  <div class="metric-content">
+                    <span class="metric-label">Current Monthly Cost</span>
+                    <span class="metric-value">{{formatPrice(getCurrentROIMetrics().currentCost)}}</span>
+                  </div>
+                </div>
+                <div class="metric-card savings">
+                  <i class="pi pi-chart-line"></i>
+                  <div class="metric-content">
+                    <span class="metric-label">Annual Savings</span>
+                    <span class="metric-value">{{formatPrice(getCurrentROIMetrics().projectedSavings)}}</span>
+                  </div>
+                </div>
+                <div class="metric-card">
+                  <i class="pi pi-clock"></i>
+                  <div class="metric-content">
+                    <span class="metric-label">Break-even Point</span>
+                    <span class="metric-value">{{getCurrentROIMetrics().breakEvenMonths}} months</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="roi-charts">
+                <div class="chart-container">
+                  <h5>Cost Comparison</h5>
+                  <p-chart type="bar" 
+                          [data]="getCurrentChartData()"
+                          [options]="{ plugins: { legend: { display: false } } }">
+                  </p-chart>
+                </div>
+                <div class="chart-container">
+                  <h5>Productivity Improvement</h5>
+                  <div class="productivity-meter">
+                    <div class="meter-label">Quality Score</div>
+                    <div class="meter-value">
+                      <span class="current">Current: 100</span>
+                      <span class="projected">Projected: {{getProjectedQualityScore()}}</span>
+                    </div>
+                    <div class="meter-bar">
+                      <div class="meter-fill" 
+                           [style.width]="getCurrentROIMetrics().qualityImprovement + '%'">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="roi-benefits">
+                <h5>Additional Benefits</h5>
+                <ul>
+                  <li>
+                    <i class="pi pi-check-circle"></i>
+                    <span>{{getCurrentROIMetrics().productivityGain}}% Productivity Increase</span>
+                  </li>
+                  <li>
+                    <i class="pi pi-check-circle"></i>
+                    <span>{{getCurrentROIMetrics().qualityImprovement}}% Quality Improvement</span>
+                  </li>
+                  <li>
+                    <i class="pi pi-check-circle"></i>
+                    <span>Reduced Operational Overhead</span>
+                  </li>
+                </ul>
+          </div>
+        </div>
+
+            <div class="summary-actions">
+              <button pButton class="p-button-secondary" (click)="downloadQuotePDF()">
+                <i class="pi pi-file-pdf"></i>
+                Download Quote PDF
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </form>
+
+      <!-- Contact Section -->
+      <div class="calculator-section contact-section" *ngIf="selectedServiceDetails && selectedTier">
+        <h2>5. Get Started</h2>
+        <div class="contact-card">
+          <div class="contact-content">
+            <h3>Ready to Transform Your Business?</h3>
+            <p>Click below to discuss your requirements with our experts on WhatsApp. We'll provide you with:</p>
+            <ul>
+              <li><i class="pi pi-check"></i> Detailed pricing based on your needs</li>
+              <li><i class="pi pi-check"></i> Custom implementation plan</li>
+              <li><i class="pi pi-check"></i> Free consultation session</li>
+              <li><i class="pi pi-check"></i> ROI analysis</li>
+            </ul>
+          </div>
+          <a [href]="getWhatsAppLink()" target="_blank" class="whatsapp-button">
+            <i class="pi pi-whatsapp"></i>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

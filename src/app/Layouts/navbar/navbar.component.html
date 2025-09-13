@@ -72,7 +72,7 @@
           <i class="pi" [ngClass]="getThemeIconClass()"></i>
           <span>{{themeService.isDarkMode() ? 'Light Mode' : 'Dark Mode'}}</span>
         </button>
-        <a class="quote-btn" routerLink="/get-quote" routerLinkActive="active" >
+        <a class="quote-btn" routerLink="/get-quote" (click)="toggleMenu()" routerLinkActive="active" >
           <i class="pi pi-phone"></i>
           <span>Get Quote</span>
         </a>

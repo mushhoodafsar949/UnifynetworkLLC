@@ -1,143 +1,253 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-// Removed AOS for better performance
-// Removed AOS styles import
+import { RouterModule } from '@angular/router';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import * as AOS from 'aos';
+
+interface ServiceSection {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  video: string;
+  image: string;
+  color: string;
+  benefits: {
+    title: string;
+    description: string;
+    icon: string;
+  }[];
+}
+
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, ButtonModule, CardModule, RouterLink],
-  templateUrl: './services.component.html',
-  styleUrl: './services.component.css'
+  imports: [CommonModule, RouterModule],
+  template: `
+    <div class="services-container">
+      <!-- Hero Section -->
+      <section class="hero-section" #heroSection>
+        <video autoplay loop muted playsinline class="hero-video">
+          <source src="assets/unifynetworkwhitemax.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+          <h1>Our Services</h1>
+          <p>Transform your business with our professional solutions</p>
+        </div>
+      </section>
+
+      <!-- Service Sections -->
+      <div class="service-sections">
+        <section *ngFor="let service of services" 
+                 [id]="service.id" 
+                 class="service-section"
+                 [style.background-color]="service.color">
+          
+          <!-- Parallax Video Background -->
+          <div class="parallax-bg">
+            <video autoplay loop muted playsinline>
+              <source [src]="service.video" type="video/mp4">
+            </video>
+          </div>
+
+          <!-- Service Content -->
+          <div class="service-content" data-aos="fade-up">
+            <div class="content-wrapper">
+              <h2>{{service.title}}</h2>
+              <h3>{{service.subtitle}}</h3>
+              <p>{{service.description}}</p>
+
+              <!-- Features Grid -->
+              <div class="features-grid">
+                <div *ngFor="let feature of service.features" 
+                     class="feature-item"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+                  <i class="pi pi-check-circle"></i>
+                  <span>{{feature}}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service Image -->
+            <div class="service-image" data-aos="fade-left">
+              <img [src]="service.image" [alt]="service.title">
+            </div>
+          </div>
+
+          <!-- Benefits Section -->
+          <div class="benefits-section">
+            <div class="benefits-grid">
+              <div *ngFor="let benefit of service.benefits; let i = index"
+                   class="benefit-card"
+                   data-aos="fade-up"
+                   [attr.data-aos-delay]="i * 100">
+                <i [class]="'pi ' + benefit.icon"></i>
+                <h4>{{benefit.title}}</h4>
+                <p>{{benefit.description}}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- CTA Section -->
+      <section class="cta-section" data-aos="fade-up">
+        <div class="cta-content">
+          <h2>Ready to Transform Your Business?</h2>
+          <p>Get started with our professional services today</p>
+          <div class="cta-buttons">
+            <a routerLink="/get-quote" class="cta-button primary">Get Quote</a>
+            <a routerLink="/contact" class="cta-button secondary">Contact Us</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+  styleUrls: ['./services.component.css']
 })
-export class ServicesComponent implements AfterViewInit {
-  services = [
+export class ServicesComponent implements OnInit, AfterViewInit {
+  @ViewChild('heroSection') heroSection!: ElementRef;
+
+  services: ServiceSection[] = [
     {
-      id:1,
+      id: 'customer-support',
       title: 'Customer Support',
-      icon: 'support_agent',
-      imageUrl:'../../../assets/services/customer-support.jpg',
-      description: '24/7 multi-language support to assist your clients with inquiries and issues.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
+      subtitle: '24/7 Professional Support',
+      description: 'Deliver exceptional customer experiences with our professional support services. Our trained agents provide round-the-clock assistance across multiple channels.',
+      features: [
+        'Omnichannel Support',
+        'Quality Monitoring',
+        'Performance Analytics',
+        'Customer Feedback Analysis'
+      ],
+      video: 'assets/services/customer-support.mp4',
+      image: 'assets/services/customer-support.jpg',
+      color: '#f0f9ff',
+      benefits: [
+        {
+          title: 'Enhanced Satisfaction',
+          description: 'Improve customer satisfaction with quick and effective support',
+          icon: 'pi-heart'
+        },
+        {
+          title: 'Reduced Wait Times',
+          description: 'Minimize response times with efficient queue management',
+          icon: 'pi-clock'
+        },
+        {
+          title: 'Quality Assurance',
+          description: 'Maintain high service standards with continuous monitoring',
+          icon: 'pi-check-circle'
+        }
+      ]
     },
     {
-      id:2,
+      id: 'sales-generation',
       title: 'Sales & Lead Generation',
-      icon: 'campaign',
-      imageUrl:'../../../assets/services/sales-and-lead-generation.jpg',
-      description: 'Convert potential leads into loyal customers through our dedicated team.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
+      subtitle: 'Drive Growth and Revenue',
+      description: 'Transform prospects into loyal customers with our comprehensive sales and lead generation services. Our data-driven approach ensures quality leads and higher conversion rates.',
+      features: [
+        'Lead Qualification',
+        'Appointment Setting',
+        'Sales Pipeline Management',
+        'Performance Tracking'
+      ],
+      video: 'assets/services/sales-generation.mp4',
+      image: 'assets/services/sales-and-lead-generation.jpg',
+      color: '#f0fdf4',
+      benefits: [
+        {
+          title: 'Increased Revenue',
+          description: 'Boost sales with qualified leads and effective follow-ups',
+          icon: 'pi-chart-line'
+        },
+        {
+          title: 'Market Expansion',
+          description: 'Reach new markets and grow your customer base',
+          icon: 'pi-globe'
+        },
+        {
+          title: 'Sales Intelligence',
+          description: 'Make informed decisions with detailed analytics',
+          icon: 'pi-chart-bar'
+        }
+      ]
     },
     {
-      id:3,
+      id: 'technical-support',
       title: 'Technical Support',
-      icon: 'build',
-      imageUrl:'../../../assets/services/technical-support.jpg',
-      description: 'Professional technical assistance for your products, ensuring seamless user experiences.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
-    },
-    {
-      id:4,
-      title: 'Software Development',
-      icon: 'code',
-      imageUrl:'../../../assets/services/software-development.jpg',
-      description: 'Custom software solutions tailored to optimize your business processes.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
-    },
-    {
-      id:5,
-      title: 'Inbound Call Handling',
-      icon: 'call',
-      imageUrl:'../../../assets/services/inbound-campaign.jpg',
-      description: 'Efficient handling of inbound calls to ensure your customers get prompt responses.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
-    },
-    {
-      id:6,
-      title: 'Outbound Campaigns',
-      icon: 'ring_volume',
-      imageUrl:'../../../assets/services/outbound-campaign.jpg',
-      description: 'Boost your sales and reach with professional outbound call campaigns.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
-    },
-    {
-      id:7,
-      title: 'Order Processing',
-      icon: 'shopping_cart',
-      imageUrl:'../../../assets/services/order-processing.jpg',
-      description: 'Streamlined order processing and tracking to enhance customer satisfaction.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
-    },
-    {
-      id:8,
-      title: 'Survey Management',
-      icon: 'poll',
-      imageUrl:'../../../assets/services/survey-management.jpg',
-      description: 'Collect and analyze customer feedback to improve your services and products.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
-    },
-    {
-      id:9,
-      title: 'Live Chat Support',
-      icon: 'chat',
-      imageUrl:'../../../assets/services/live-chat-support.jpg',
-      description: 'Real-time chat support to address customer concerns promptly and effectively.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
-    },
-    {
-      id:10,
-      title: 'Help Desk Services',
-      icon: 'help_outline',
-      imageUrl:'../../../assets/services/help-desk-services.jpg',
-      description: 'Comprehensive help desk solutions to address technical and non-technical queries.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
-    },
-    {
-      id:11,
-      title: 'Appointment Scheduling',
-      icon: 'event',
-      imageUrl:'../../../assets/services/appointments.jpg',
-      description: 'Efficient scheduling services to manage appointments and bookings seamlessly.',
-      details: 'We provide comprehensive customer support through trained agents equipped to handle diverse customer needs in multiple languages.'
+      subtitle: 'Expert Technical Assistance',
+      description: 'Provide reliable technical support with our skilled engineers. From basic troubleshooting to complex technical issues, we ensure quick and effective resolution.',
+      features: [
+        'Technical Troubleshooting',
+        'Remote Assistance',
+        'Knowledge Base Management',
+        'SLA Compliance'
+      ],
+      video: 'assets/services/technical-support.mp4',
+      image: 'assets/services/technical-support.jpg',
+      color: '#faf5ff',
+      benefits: [
+        {
+          title: 'Fast Resolution',
+          description: 'Solve technical issues quickly and efficiently',
+          icon: 'pi-bolt'
+        },
+        {
+          title: 'Expert Support',
+          description: 'Access skilled technical professionals',
+          icon: 'pi-cog'
+        },
+        {
+          title: 'Proactive Monitoring',
+          description: 'Prevent issues before they impact users',
+          icon: 'pi-shield'
+        }
+      ]
     }
   ];
 
+  constructor() {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
+  ngOnInit() {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  }
+
   ngAfterViewInit() {
-    // Removed AOS initialization for better performance
-  }
+    // Hero Section Parallax
+    gsap.to(this.heroSection.nativeElement, {
+      backgroundPosition: '50% 100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: this.heroSection.nativeElement,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
 
-
-  getServiceFeatures(serviceTitle: string): string[] {
-    const featureMap: { [key: string]: string[] } = {
-      'Customer Support': ['24/7 availability', 'Multilingual support', 'Issue resolution'],
-      'Sales & Lead Generation': ['Lead qualification', 'Sales conversion', 'CRM integration'],
-      'Technical Support': ['Expert technicians', 'Remote assistance', 'Problem diagnosis'],
-      'Live Chat Support': ['Real-time responses', 'Multi-platform', 'Quick resolution'],
-      'Order Processing': ['Secure transactions', 'Order tracking', 'Payment processing'],
-      'Inbound Campaign': ['Call routing', 'Customer analytics', 'Quality assurance'],
-      'Outbound Campaign': ['Targeted outreach', 'Script optimization', 'Performance tracking'],
-      'Help Desk Services': ['Ticket management', 'Knowledge base', 'Escalation protocols'],
-      'Survey Management': ['Custom surveys', 'Data analysis', 'Response tracking'],
-      'Appointment Scheduling': ['Calendar integration', 'Automated reminders', 'Confirmation system']
-    };
-    return featureMap[serviceTitle] || ['Professional service', 'Quality support', 'Expert team'];
-  }
-
-  getServiceIcon(serviceTitle: string): string {
-    const iconMap: {[key: string]: string} = {
-      'Customer Support': 'pi-headphones',
-      'Sales & Lead Generation': 'pi-chart-line',
-      'Technical Support': 'pi-cog',
-      'Live Chat Support': 'pi-comments',
-      'Order Processing': 'pi-shopping-cart',
-      'Inbound Campaign': 'pi-phone',
-      'Outbound Campaign': 'pi-send',
-      'Help Desk Services': 'pi-question-circle',
-      'Survey Management': 'pi-chart-bar',
-      'Appointment Scheduling': 'pi-calendar'
-    };
-    return iconMap[serviceTitle] || 'pi-briefcase';
+    // Service Section Animations
+    this.services.forEach(service => {
+      gsap.from(`#${service.id} .service-content`, {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: `#${service.id}`,
+          start: 'top center',
+          end: 'bottom center',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    });
   }
 }
